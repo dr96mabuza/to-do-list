@@ -1,18 +1,19 @@
 const runToDoList = () => {
     class createProject {
-        constructor (name, discription, dueDate, ...tasks) {
+        constructor (name, discription, dueDate, priority, ...tasks) {
         
             this.name = name;
             this.discription = discription;
             this.dueDate = dueDate;
+            this.priority = priority;
             this.tasks = tasks;
         }
     }
 
     let arrayForProjects = [];
 
-    const saveProjects = (name, discription, ...tasks) => {
-        const project = new createProject(name, discription, ...tasks);
+    const saveProjects = (name, discription, dueDate, priority, ...tasks) => {
+        const project = new createProject(name, discription, dueDate, priority, ...tasks);
         return arrayForProjects.push(project);
     }
 
@@ -53,7 +54,7 @@ const runToDoList = () => {
         const today = document.querySelector('#toDoList');
         const tomorrow = document.querySelector('#on-Progress');
         for(let i = 0; i < arrayForProjects.length; i++) {
-            if(arrayForProjects[i].dueDate < 24){
+            if(arrayForProjects[i].priority === 'high'){
                 const Container = document.createElement('div');
                 const name = document.createElement('div');
                 name.textContent = arrayForProjects[i].name;
@@ -74,7 +75,7 @@ const runToDoList = () => {
                 }
                 today.appendChild(Container);
 
-            } else if (arrayForProjects[i].dueDate > 24){
+            } else if (arrayForProjects[i].priority === 'medium'){
                 const Container = document.createElement('div');
                 const name = document.createElement('div');
                 name.textContent = arrayForProjects[i].name;

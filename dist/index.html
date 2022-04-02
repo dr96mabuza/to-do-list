@@ -7,63 +7,89 @@
     <title>To Do List</title>
 </head>
 <body>
-<div id="content">
-    <div id="header">
-        <div id="user">
-            <div class="userName"></div>
-            <div class="welcome"></div>
+    <div id="content">
+        <div id="header">
+            <div id="user">
+                <div class="userName"></div>
+                <div class="welcome"></div>
+            </div>
+            <div id="headerIcons">
+                <div class="icon"></div>
+                <div class="icon"></div>
+                <div class="profilePicture"></div>
+            </div>
         </div>
-        <div id="headerIcons">
-            <div class="icon"></div>
-            <div class="icon"></div>
-            <div class="profilePicture"></div>
+        <div id="sidebar">
+            <div class="home">
+                <div class="sidebarIcon"></div>
+                <div class="sidebarContent">To Do List</div>
+            </div>
+            <div class="dashboard">
+                <div class="sidebarIcon"></div>
+                <div class="sidebarContent">Dashboard</div>
+            </div>
+            <div class="workspace">
+                <div class="today">
+                    <div class="sidebarIcon"></div>
+                    <div class="sidebarContent">Due today</div> 
+                </div>
+                <div class="tomorrow">
+                    <div class="sidebarIcon"></div>
+                    <div class="sidebarContent">Due Tomorrow</div>
+                </div>
+                <div class="after-seven-days">
+                    <div class="sidebarIcon"></div>
+                    <div class="sidebarContent">Due in the next seven days</div>
+                </div>
+            </div>
+        </div>
+        <div id="projects-Container">
+            <div id="projects">
+                <div id="toDoList">
+                    <div>To Do List</div>
+                </div>
+                <div id="on-Progress">
+                    <div>On Progess</div>
+                </div>
+                <div id="completed">
+                    <div>Completed</div>
+                </div>
+            </div>
+            <div class="addNewProject">
+                <button class="addProjects">Add New Card</button>
+            </div>
         </div>
     </div>
-    <div id="sidebar">
-        <div class="home">
-            <div class="sidebarIcon"></div>
-            <div class="sidebarContent">To Do List</div>
-        </div>
-        <div class="dashboard">
-            <div class="sidebarIcon"></div>
-            <div class="sidebarContent">Dashboard</div>
-        </div>
-        <div class="workspace">
-            <div class="today">
-                <div class="sidebarIcon"></div>
-                <div class="sidebarContent">Due today</div> 
+    
+    <div id="formContainer">
+        <form id="form">
+            <div class="formContent">
+                <label for="projectName">Project Name</label>
+                <input type="text" name="projectName" id="projectName" required>
             </div>
-            <div class="tomorrow">
-                <div class="sidebarIcon"></div>
-                <div class="sidebarContent">Due Tomorrow</div>
+            <div class="formContent">
+                <label for="projectDiscription">Discription</label>
+                <input type="text" name="projectDiscription" id="projectDiscription" required>
             </div>
-            <div class="after-seven-days">
-                <div class="sidebarIcon"></div>
-                <div class="sidebarContent">Due in the next seven days</div>
+            <div class="formContent">
+                <label for="dueDate">Date and Time due</label>
+                <input type="datetime" name="dueDate" id="dueDate">
             </div>
-        </div>
+            <div class="formContent">
+                <label for="priority">Priority</label>
+                <select id="priority" name="priority">
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                  </select>
+            </div>
+            <div class="formContent">
+                <label for="projectTasks">Tasks</label>
+                <input type="text" name="projectTasks" id="projectTasks">
+            </div>
+            <button type="submit" id="submit">submit</button>
+        </form>
     </div>
-    <div id="projects-Container">
-        <div id="projects">
-            <div id="toDoList">
-                <div>To Do List</div>
-            </div>
-            <div id="on-Progress">
-                <div>On Progess</div>
-            </div>
-            <div id="completed">
-                <div>Completed</div>
-            </div>
-        </div>
-        <div class="addNewProject">
-            <button>Add New Card</button>
-        </div>
-    </div>
-</div>
     <script src="./main.js"></script>
-    <form action="" method="post">
-        <label for="">date</label>
-        <input type="date" name="" id="">
-    </form>
 </body>
 </html>
