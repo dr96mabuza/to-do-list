@@ -16,8 +16,6 @@ const runToDoList = () => {
         return arrayForProjects.push(project);
     }
 
-    saveProjects('who', 'what', '1996/12/19', 'why');
-
     const displayProjects = () => {
         const body = document.querySelector('body');
         const content = document.createElement('div');
@@ -50,7 +48,57 @@ const runToDoList = () => {
         }
     }
 
-    return {displayProjects};
+    const todaysProjects = () => {
+        
+        const today = document.querySelector('#toDoList');
+        const tomorrow = document.querySelector('#on-Progress');
+        for(let i = 0; i < arrayForProjects.length; i++) {
+            if(arrayForProjects[i].dueDate < 24){
+                const Container = document.createElement('div');
+                const name = document.createElement('div');
+                name.textContent = arrayForProjects[i].name;
+                Container.appendChild(name);
+
+                const discription = document.createElement('div');
+                discription.textContent = arrayForProjects[i].discription;
+                Container.appendChild(discription);
+
+                for (let j = 0; j < arrayForProjects[i].tasks.length; j++) {
+                    const tasks = document.createElement('div');
+                    tasks.textContent = arrayForProjects[i].tasks[j];
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'remove task';
+                    deleteButton.addEventListener('click', () => {arrayForProjects[i].tasks.splice(j,1);console.log(arrayForProjects[i].tasks)});
+                    tasks.appendChild(deleteButton);
+                    Container.appendChild(tasks);
+                }
+                today.appendChild(Container);
+
+            } else if (arrayForProjects[i].dueDate > 24){
+                const Container = document.createElement('div');
+                const name = document.createElement('div');
+                name.textContent = arrayForProjects[i].name;
+                Container.appendChild(name);
+
+                const discription = document.createElement('div');
+                discription.textContent = arrayForProjects[i].discription;
+                Container.appendChild(discription);
+
+                for (let j = 0; j < arrayForProjects[i].tasks.length; j++) {
+                    const tasks = document.createElement('div');
+                    tasks.textContent = arrayForProjects[i].tasks[j];
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'remove task';
+                    deleteButton.addEventListener('click', () => {arrayForProjects[i].tasks.splice(j,1);console.log(arrayForProjects[i].tasks)});
+                    tasks.appendChild(deleteButton);
+                    Container.appendChild(tasks);
+                }
+                tomorrow.appendChild(Container);
+            }
+        }
+    }
+
+    return {displayProjects, saveProjects, todaysProjects};
 }
 
 export {runToDoList};
