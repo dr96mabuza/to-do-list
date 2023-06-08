@@ -1,5 +1,7 @@
-import { th } from "date-fns/locale";
+import { format } from "date-fns";
 import uniqid from "uniqid"
+
+format(new Date(2023, 6, 8), "yyyy/MM/dd")
 
 const runToDoList = () => {
     class createProject {
@@ -9,7 +11,9 @@ const runToDoList = () => {
             this.discription = discription;
             this.dueDate = dueDate;
             this.priority = priority;
-            this.id = uniqid()
+            this.id = uniqid();
+            this.dateCreated = new Date();
+            this.dateUpdated = new Date()
             // this.tasks = tasks;
         }
     }
@@ -36,6 +40,7 @@ const runToDoList = () => {
         const project = getProjectById(id);
         const index = arrayForProjects.indexOf(project);
         project.priority = newPriority;
+        project.dateUpdated = new Date()
         arrayForProjects[index] = project;
     }
 
@@ -46,6 +51,8 @@ const runToDoList = () => {
     const getId = () => {
         return this.id;
     }
+
+    
 
 
 }
