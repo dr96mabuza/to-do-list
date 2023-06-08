@@ -1,105 +1,53 @@
+import { th } from "date-fns/locale";
+import uniqid from "uniqid"
+
 const runToDoList = () => {
     class createProject {
-        constructor (name, discription, dueDate, priority, ...tasks) {
+        constructor (name, discription, dueDate, priority) {
         
             this.name = name;
             this.discription = discription;
             this.dueDate = dueDate;
             this.priority = priority;
-            this.tasks = tasks;
+            this.id = uniqid()
+            // this.tasks = tasks;
         }
     }
 
     let arrayForProjects = [];
 
-    const saveProjects = (name, discription, dueDate, priority, ...tasks) => {
-        const project = new createProject(name, discription, dueDate, priority, ...tasks);
-        return arrayForProjects.push(project);
+    const createNewProject = (name, discription, dueDate, priority) => {
+        return new createProject(name, discription, dueDate, priority);
     }
 
-    const displayProjects = () => {
-        const body = document.querySelector('body');
-        const content = document.createElement('div');
-        body.appendChild(content);
-        for(let i = 0; i < arrayForProjects.length; i++) {
-            const container = document.createElement('div');
-            content.appendChild(container);
+    const saveProjects = (project) => {
+        arrayForProjects.push(project);
+    }
 
-            const nameContainer = document.createElement('div');
-            nameContainer.textContent = arrayForProjects[i].name;
-            container.appendChild(nameContainer);
-
-            const discriptionContainer = document.createElement('div');
-            discriptionContainer.textContent = arrayForProjects[i].discription;
-            container.appendChild(discriptionContainer);
-
-            const dateContainer = document.createElement('div');
-            dateContainer.textContent = arrayForProjects[i].dueDate;
-            container.appendChild(dateContainer);
-            
-            for (let j = 0; j < arrayForProjects[i].tasks.length; j++) {
-                const tasksContainer = document.createElement('div');
-                tasksContainer.textContent = arrayForProjects[i].tasks[j];
-                const deleteButton = document.createElement('button');
-                deleteButton.textContent = 'remove task';
-                deleteButton.addEventListener('click', () => {arrayForProjects[i].tasks.splice(j,1);console.log(arrayForProjects[i].tasks)});
-                tasksContainer.appendChild(deleteButton);
-                container.appendChild(tasksContainer);
+    const getProjectById = (id) => {
+        return arrayForProjects.filter((project) => {
+            if (project.id == id) {
+                return project;
             }
-        }
+        });
     }
 
-    const todaysProjects = () => {
-        
-        const today = document.querySelector('#toDoList');
-        const tomorrow = document.querySelector('#on-Progress');
-        for(let i = 0; i < arrayForProjects.length; i++) {
-            if(arrayForProjects[i].priority === 'high'){
-                const Container = document.createElement('div');
-                const name = document.createElement('div');
-                name.textContent = arrayForProjects[i].name;
-                Container.appendChild(name);
-
-                const discription = document.createElement('div');
-                discription.textContent = arrayForProjects[i].discription;
-                Container.appendChild(discription);
-
-                for (let j = 0; j < arrayForProjects[i].tasks.length; j++) {
-                    const tasks = document.createElement('div');
-                    tasks.textContent = arrayForProjects[i].tasks[j];
-                    const deleteButton = document.createElement('button');
-                    deleteButton.textContent = 'remove task';
-                    deleteButton.addEventListener('click', () => {arrayForProjects[i].tasks.splice(j,1);console.log(arrayForProjects[i].tasks)});
-                    tasks.appendChild(deleteButton);
-                    Container.appendChild(tasks);
-                }
-                today.appendChild(Container);
-
-            } else if (arrayForProjects[i].priority === 'medium'){
-                const Container = document.createElement('div');
-                const name = document.createElement('div');
-                name.textContent = arrayForProjects[i].name;
-                Container.appendChild(name);
-
-                const discription = document.createElement('div');
-                discription.textContent = arrayForProjects[i].discription;
-                Container.appendChild(discription);
-
-                for (let j = 0; j < arrayForProjects[i].tasks.length; j++) {
-                    const tasks = document.createElement('div');
-                    tasks.textContent = arrayForProjects[i].tasks[j];
-                    const deleteButton = document.createElement('button');
-                    deleteButton.textContent = 'remove task';
-                    deleteButton.addEventListener('click', () => {arrayForProjects[i].tasks.splice(j,1);console.log(arrayForProjects[i].tasks)});
-                    tasks.appendChild(deleteButton);
-                    Container.appendChild(tasks);
-                }
-                tomorrow.appendChild(Container);
-            }
-        }
+    const changePriority = (newPriority, id) => {
+        const project = getProjectById(id);
+        const index = arrayForProjects.indexOf(project);
+        project.priority = newPriority;
+        arrayForProjects[index] = project;
     }
 
-    return {displayProjects, saveProjects, todaysProjects};
+    const getName = () => {
+        return this.name;
+    }
+
+    const getId = () => {
+        return this.id;
+    }
+
+
 }
 
 export {runToDoList};
