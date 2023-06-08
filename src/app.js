@@ -1,5 +1,6 @@
 import { format } from "date-fns";
-import uniqid from "uniqid"
+import uniqid from "uniqid";
+import { displayProjects } from "../src/DOM";
 
 format(new Date(2023, 6, 8), "yyyy/MM/dd")
 
@@ -17,14 +18,13 @@ const runToDoList = () => {
             // this.tasks = tasks;
         }
     }
-
-
+    const pp = new createProject("test", "test new", "20/20/2021", "high");
     let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [];
+    displayProjects(projects);
 
     const saveOnLocalStorage = () => {
         localStorage.setItem("todos", JSON.stringify(projects));
     }
-
 
     const createNewProject = (name, discription, dueDate, priority) => {
         return new createProject(name, discription, dueDate, priority);
@@ -57,7 +57,7 @@ const runToDoList = () => {
             if (id != project.id) {
                 return project;
             }
-        })
+        });
     }
 
     const changeDueDate = (date, id) => {

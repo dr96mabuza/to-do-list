@@ -11,9 +11,11 @@ addProjectButton.addEventListener('click', () => {
 });
 
 const displayProjects = (projects) => {
-    const projectsContainer = document.querySelector("#projects");
-    projects.map((project) => {
+    const projectsContainer = document.querySelector("body");
+    projects.forEach((project) => {
+        // console.log("hi");
         const projectContainer = document.createElement("div");
+        projectsContainer.appendChild(projectContainer); 
         
         const nameContainer = document.createElement("div");
         nameContainer.setAttribute("id", "project-name");
@@ -39,7 +41,7 @@ const displayProjects = (projects) => {
         editButton.setAttribute("id", "edit");
         projectContainer.appendChild(editButton);
 
-        projectsContainer.appendChild(projectContainer); 
+        
     });
 };
 
