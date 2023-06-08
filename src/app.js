@@ -49,13 +49,22 @@ const runToDoList = () => {
         project.priority = newPriority;
         project.dateUpdated = new Date()
         projects[index] = project;
-        saveOnLocalStorage()
+        saveOnLocalStorage();
+    }
+
+    const deleteProject = (id) => {
+        projects = projects.filter((project) => {
+            if (id != project.id) {
+                return project;
+            }
+        })
     }
     
     return {
         createNewProject,
         saveProjects,
-        changePriority
+        changePriority,
+        deleteProject
     }
 }
 
