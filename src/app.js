@@ -59,12 +59,21 @@ const runToDoList = () => {
             }
         })
     }
+
+    const changeDueDate = (date, id) => {
+        const index = projects.indexOf(project);
+        const project = getProjectById(id);
+        project.dueDate = date;
+        projects[index] = project;
+        saveOnLocalStorage();
+    }
     
     return {
         createNewProject,
         saveProjects,
         changePriority,
-        deleteProject
+        deleteProject,
+        changeDueDate
     }
 }
 
