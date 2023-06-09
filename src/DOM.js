@@ -19,22 +19,22 @@ const displayProjects = (projects) => {
         
         const nameContainer = document.createElement("div");
         nameContainer.setAttribute("id", "project-name");
-        nameContainer.textContent(project.name);
+        nameContainer.textContent = project.name;
         projectContainer.appendChild(nameContainer);
 
         const discriptionContainer = document.createElement("div");
         discriptionContainer.setAttribute("id", "project-discription");
-        discriptionContainer.textContent(project.discription);
+        discriptionContainer.textContent = project.discription;
         projectContainer.appendChild(discriptionContainer);
 
         const dueDateContainer = document.createElement("div");
         dueDateContainer.setAttribute("id", "project-dueDate");
-        dueDateContainer.textContent(project.dueDate);
+        dueDateContainer.textContent = project.dueDate;
         projectContainer.appendChild(dueDateContainer);
 
         const priorityContainer = document.createElement("div");
         priorityContainer.setAttribute("id", "project-priority");
-        priorityContainer.textContent(project.priority);
+        priorityContainer.textContent = project.priority;
         projectContainer.appendChild(priorityContainer);
 
         const editButton = document.createElement("button");
