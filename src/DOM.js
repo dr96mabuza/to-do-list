@@ -10,6 +10,14 @@ addProjectButton.addEventListener('click', () => {
     formContainer.style.display = 'block';
 });
 
+const editForm = document.querySelector("#editForm");
+editForm.addEventListener("submit", () => { event.preventDefault(); });
+
+const submitEditForm = document.querySelector("#editForm");
+submitEditForm.addEventListener("click", () => {
+    // ?????
+});
+
 const displayProjects = (projects) => {
     const projectsContainer = document.querySelector("body");
     projects.forEach((project) => {
@@ -43,7 +51,7 @@ const displayProjects = (projects) => {
 
         const editButton = document.querySelector( `#edit-${project.name}`);
         editButton.addEventListener("click", () => {
-
+            // insert edit form
         });
     });
 };
