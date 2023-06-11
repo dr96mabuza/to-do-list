@@ -38,12 +38,17 @@ const displayProjects = (projects) => {
         projectContainer.appendChild(priorityContainer);
 
         const editButton = document.createElement("button");
-        editButton.setAttribute("id", "edit");
+        editButton.setAttribute("id", `#edit-${project.name}`);
         projectContainer.appendChild(editButton);
 
-        
+        const editButton = document.querySelector( `#edit-${project.name}`);
+        editButton.addEventListener("click", () => {
+
+        });
     });
 };
+
+
 
 
 export {displayProjects};
