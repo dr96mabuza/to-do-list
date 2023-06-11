@@ -16,6 +16,7 @@ editForm.addEventListener("submit", () => { event.preventDefault(); });
 const submitEditForm = document.querySelector("#editForm");
 submitEditForm.addEventListener("click", () => {
     // ?????
+    // needs to call edit method
 });
 
 const displayProjects = (projects) => {
@@ -45,13 +46,22 @@ const displayProjects = (projects) => {
         priorityContainer.textContent = project.priority;
         projectContainer.appendChild(priorityContainer);
 
-        const editButton = document.createElement("button");
+        const createEditButton = document.createElement("button");
         editButton.setAttribute("id", `#edit-${project.name}`);
-        projectContainer.appendChild(editButton);
+        projectContainer.appendChild(createEditButton);
 
         const editButton = document.querySelector( `#edit-${project.name}`);
         editButton.addEventListener("click", () => {
             // insert edit form
+        });
+
+        const createDeleteButton = document.createElement("button");
+        createDeleteButton.setAttribute("id", `delete-${project.name}`);
+        projectContainer.appendChild(createDeleteButton);
+
+        const deleteButton = document.querySelector(`#delete-${project.name}`);
+        deleteButton.addEventListener("click", () => {
+            // call delete method
         });
     });
 };
