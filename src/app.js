@@ -19,7 +19,7 @@ const runToDoList = () => {
         }
     }
     const pp = new createProject("test", "test new", "20/20/2021", "high");
-    let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [];
+    let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [pp];
     displayProjects(projects);
 
     const saveOnLocalStorage = () => {

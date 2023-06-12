@@ -5,26 +5,26 @@ form.addEventListener('submit', function (event) {
     event.preventDefault();
 });
 
-const addProjectButton = document.querySelector('.addProjects');
-addProjectButton.addEventListener('click', () => {
-    formContainer.style.display = 'block';
-});
+// const addProjectButton = document.querySelector('.addProjects');
+// addProjectButton.addEventListener('click', () => {
+//     formContainer.style.display = 'block';
+// });
 
-const editForm = document.querySelector("#editForm");
-editForm.addEventListener("submit", () => { event.preventDefault(); });
+// const editForm = document.querySelector("#editForm");
+// editForm.addEventListener("submit", (event) => { event.preventDefault(); });
 
-const submitEditForm = document.querySelector("#editForm");
-submitEditForm.addEventListener("click", () => {
-    // ?????
-    // needs to call edit method
-});
+// const submitEditForm = document.querySelector("#editForm");
+// submitEditForm.addEventListener("click", () => {
+//     // ?????
+//     // needs to call edit method
+// });
 
 const displayProjects = (projects) => {
     const projectsContainer = document.querySelector("body");
     projects.forEach((project) => {
         // console.log("hi");
         const projectContainer = document.createElement("div");
-        projectsContainer.appendChild(projectContainer); 
+        
         
         const nameContainer = document.createElement("div");
         nameContainer.setAttribute("id", "project-name");
@@ -46,23 +46,21 @@ const displayProjects = (projects) => {
         priorityContainer.textContent = project.priority;
         projectContainer.appendChild(priorityContainer);
 
-        const createEditButton = document.createElement("button");
-        editButton.setAttribute("id", `#edit-${project.name}`);
-        projectContainer.appendChild(createEditButton);
+        // const createEditButton = document.createElement("button");
+        // editButton.setAttribute("id", `#edit-${project.name}`);
+        // projectContainer.appendChild(createEditButton);
 
-        const editButton = document.querySelector( `#edit-${project.name}`);
-        editButton.addEventListener("click", () => {
-            // insert edit form
-        });
+
 
         const createDeleteButton = document.createElement("button");
         createDeleteButton.setAttribute("id", `delete-${project.name}`);
         projectContainer.appendChild(createDeleteButton);
 
-        const deleteButton = document.querySelector(`#delete-${project.name}`);
-        deleteButton.addEventListener("click", () => {
-            // call delete method
-        });
+        // const deleteButton = document.querySelector(`#delete-${project.name}`);
+        // deleteButton.addEventListener("click", () => {
+        //     // call delete method
+        // });
+        projectsContainer.appendChild(projectContainer); 
     });
 };
 
