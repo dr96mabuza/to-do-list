@@ -19,52 +19,46 @@ form.addEventListener('submit', function (event) {
 //     // needs to call edit method
 // });
 
+const createNewElement = (type, id, textContent) => {
+    const container = document.createElement(type);
+    container.setAttribute("id", id);
+    container.textContent = textContent;
+
+    return container;
+};
+
 const displayProjects = (projects) => {
     const projectsContainer = document.querySelector("body");
+
     projects.forEach((project) => {
-        // console.log("hi");
         const projectContainer = document.createElement("div");
         
-        
-        const nameContainer = document.createElement("div");
-        nameContainer.setAttribute("id", "project-name");
-        nameContainer.textContent = project.name;
-        projectContainer.appendChild(nameContainer);
+        projectContainer.appendChild(
+            createNewElement("div", "project-name", project.name)
+            );
+        projectContainer.appendChild(
+            createNewElement("div", "project-discription", project.discription)
+            );
+        projectContainer.appendChild(
+            createNewElement("div", "project-dueDate", project.dueDate)
+            );
+        projectContainer.appendChild(
+            createNewElement("div", "project-priority", project.priority)
+            );
+        projectContainer.appendChild(
+            createNewElement("button", `edit-${project.name}`, "edit")
+            );
+        projectContainer.appendChild(
+            createNewElement("button", `delete-${project.name}`, "delete")
+            );
 
-        const discriptionContainer = document.createElement("div");
-        discriptionContainer.setAttribute("id", "project-discription");
-        discriptionContainer.textContent = project.discription;
-        projectContainer.appendChild(discriptionContainer);
-
-        const dueDateContainer = document.createElement("div");
-        dueDateContainer.setAttribute("id", "project-dueDate");
-        dueDateContainer.textContent = project.dueDate;
-        projectContainer.appendChild(dueDateContainer);
-
-        const priorityContainer = document.createElement("div");
-        priorityContainer.setAttribute("id", "project-priority");
-        priorityContainer.textContent = project.priority;
-        projectContainer.appendChild(priorityContainer);
-
-        // const createEditButton = document.createElement("button");
-        // editButton.setAttribute("id", `#edit-${project.name}`);
-        // projectContainer.appendChild(createEditButton);
-
-
-
-        const createDeleteButton = document.createElement("button");
-        createDeleteButton.setAttribute("id", `delete-${project.name}`);
-        projectContainer.appendChild(createDeleteButton);
-
-        // const deleteButton = document.querySelector(`#delete-${project.name}`);
-        // deleteButton.addEventListener("click", () => {
-        //     // call delete method
-        // });
         projectsContainer.appendChild(projectContainer); 
     });
 };
 
-
-
+    // const deleteButton = document.querySelector(`#delete-${project.name}`);
+    // deleteButton.addEventListener("click", () => {
+    //     // call delete method
+    // });
 
 export {displayProjects};
