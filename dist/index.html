@@ -7,80 +7,33 @@
     <title>To Do List</title>
 </head>
 <body>
-    <div id="content">
-        <div id="header">
-            <div id="user">
-                <div class="userName"></div>
-                <div class="welcome"></div>
-            </div>
-            <div id="headerIcons">
-                <div class="icon"></div>
-                <div class="icon"></div>
-                <div class="profilePicture"></div>
-            </div>
-        </div>
+    <div id="main">
         <div id="sidebar">
-            <div class="home">
-                <div class="sidebarIcon"></div>
-                <div class="sidebarContent">To Do List</div>
+            <div id="sidebar-header"></div>
+            <div id="sidemenu">
+                <div id="tasks"></div>
+                <div id="lists"></div>
+                <div id="tags"></div>
             </div>
-            <div class="dashboard">
-                <div class="sidebarIcon"></div>
-                <div class="sidebarContent">Dashboard</div>
-            </div>
-            <div class="workspace">
-                <div class="today">
-                    <div class="sidebarIcon"></div>
-                    <div class="sidebarContent">Due today</div> 
+            <div id="sidebar-footer">
+                <div>
+                    <a href="http://" target="_blank" rel="noopener noreferrer"></a>
+                    <div>Settings</div>
                 </div>
-                <div class="tomorrow">
-                    <div class="sidebarIcon"></div>
-                    <div class="sidebarContent">Due Tomorrow</div>
-                </div>
-                <div class="after-seven-days">
-                    <div class="sidebarIcon"></div>
-                    <div class="sidebarContent">Due in the next seven days</div>
+                <div>
+                    <a href="http://" target="_blank" rel="noopener noreferrer"></a>
+                    <div>Sign out</div>
                 </div>
             </div>
         </div>
-        <div id="projects-Container">
-            <div id="projects">
-                Projects
-            </div>
-            <div class="addNewProject">
-                <button class="addProjects">Add New Card</button>
+        <div id="content">
+            <div id="content-header"></div>
+            <div id="content-container">
+                <div id="today"></div>
+                <div id="tomorrow"></div>
+                <div id="week"></div>
             </div>
         </div>
-    </div>
-    
-    <div id="formContainer">
-        <form id="form">
-            <div class="formContent">
-                <label for="projectName">Project Name</label>
-                <input type="text" name="projectName" id="projectName" required>
-            </div>
-            <div class="formContent">
-                <label for="projectDiscription">Discription</label>
-                <input type="text" name="projectDiscription" id="projectDiscription" required>
-            </div>
-            <div class="formContent">
-                <label for="dueDate">Date and Time due</label>
-                <input type="datetime" name="dueDate" id="dueDate">
-            </div>
-            <div class="formContent">
-                <label for="priority">Priority</label>
-                <select id="priority" name="priority">
-                    <option value="High">High</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Low">Low</option>
-                  </select>
-            </div>
-            <div class="formContent">
-                <label for="projectTasks">Tasks</label>
-                <input type="text" name="projectTasks" id="projectTasks">
-            </div>
-            <button type="submit" id="submit">submit</button>
-        </form>
     </div>
     <script src="./main.js"></script>
 </body>
