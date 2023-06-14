@@ -7,6 +7,59 @@
     <title>To Do List</title>
 </head>
 <body>
+    <div id="AddNewTaskFormContainer">
+        <form id="AddTaskForm" action="" method="post">
+            <legend>Add New Task</legend>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label for="discription">Discription</label>
+                <input type="text" name="discription">
+            </div>
+            <div>
+                <label for="dueDate">Date due</label>
+                <input type="datetime" name="" id="">
+            </div>
+            <div>
+                <label for="priority">Priority</label>
+                <select name="" id="">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+            <button type="submit">Add Task</button>
+        </form>
+    </div>
+
+    <div id="EditPriorityFormContainer">
+        <form action="" method="post" id="EditPriorityForm">
+            <legend>Change Priority</legend>
+            <div>
+                <label for="priority">Priority</label>
+                <select name="" id="">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+            <button type="submit">Change Priority</button>
+        </form>
+    </div>
+
+    <div id="EditDueDateFormContainer">
+        <form action="" method="post" id="EditDueDateForm">
+            <legend>Change Due Date</legend>
+            <div>
+                <label for=""></label>
+                <input type="datetime" name="" id="">
+            </div>
+            <button type="submit">Change Due Date</button>
+        </form>
+    </div>
+    
     <div id="main">
         <div id="sidebar">
             <div id="sidebar-header"></div>

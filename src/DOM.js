@@ -1,6 +1,6 @@
-const formContainer = document.querySelector('#formContainer');
+const formContainer = document.querySelector('#AddNewTaskFormContainer');
 
-const form = document.querySelector('#form');
+const form = document.querySelector('#AddTaskForm');
 form.addEventListener('submit', function (event) {
     event.preventDefault();
 });
