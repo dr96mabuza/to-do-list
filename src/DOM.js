@@ -6,7 +6,7 @@ form.addEventListener('submit', function (event) {
 });
 
 const editForm = document.querySelector("#EditPriority-modal");
-editForm.style.display = "none";
+// editForm.style.display = "none";
 
 // const addProjectButton = document.querySelector('.addProjects');
 // addProjectButton.addEventListener('click', () => {
@@ -55,18 +55,20 @@ const displayProjects = (projects, category) => {
             createNewElement("button", `delete-${project.name}`, "delete")
             );
 
-        // const deleteButton = document.querySelector(`#delete-${project.name}`);
-        // deleteButton.addEventListener("click", () => {
-        //     // get delete project
-        // });
+        projectsContainer.appendChild(projectContainer); 
+
+        // event listeners for each task
+
+        const deleteButton = document.querySelector(`#delete-${project.name}`);
+        deleteButton.addEventListener("click", () => {
+            console.log("pass");
+        });
         
         const editButton = document.querySelector(`#edit-${project.name}`);
         editButton.addEventListener("click", () => {
             const editForm = document.querySelector("#EditPriority-modal");
             editForm.style.display = "block";
         });
-
-        projectsContainer.appendChild(projectContainer); 
     });
 };
 
