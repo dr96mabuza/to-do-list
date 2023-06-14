@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { addDays, format, isToday, isTomorrow, parse } from "date-fns";
 import uniqid from "uniqid";
 import { displayProjects } from "../src/DOM";
 
@@ -10,7 +10,7 @@ const runToDoList = () => {
         
             this.name = name;
             this.discription = discription;
-            this.dueDate = dueDate;
+            this.dueDate = parse(dueDate, "yyyy-MM-dd", new Date());
             this.priority = priority;
             this.id = uniqid();
             this.dateCreated = new Date();
@@ -18,9 +18,28 @@ const runToDoList = () => {
             // this.tasks = tasks;
         }
     }
-    const pp = new createProject("test", "test new", "20/20/2021", "high");
+    localStorage.clear();
+    const pp = new createProject("test", "test new", `2023-06-14`, "high");
     let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [pp];
-    displayProjects(projects);
+    console.log(isToday(projects[0].dueDate));
+    
+    const getProjectsByCategory = (category) => {
+        const result = projects.filter((project) => {
+            if (isToday(project.dueDate) && category == "today") {
+                return project;
+            } else if (isTomorrow(project.dueDate) && category == "tomorrow") {
+                return project;
+            } else if (project.dueDate > addDays(project.dueDate, 2) && project.dueDate <= addDays(project.dueDate, 7) && category == "week") {
+                return project;
+            }
+        });
+        return result;
+    }
+
+    (function (){
+        const categoryList = ["today", "tomorrow", "week"];
+        categoryList.forEach((category) => { displayProjects(getProjectsByCategory(category), category); });
+    })();
 
     const saveOnLocalStorage = () => {
         localStorage.setItem("todos", JSON.stringify(projects));

@@ -27,8 +27,8 @@ const createNewElement = (type, id, textContent) => {
     return container;
 };
 
-const displayProjects = (projects) => {
-    const projectsContainer = document.querySelector("body");
+const displayProjects = (projects, category) => {
+    const projectsContainer = document.querySelector(`#${category}`);
 
     projects.forEach((project) => {
         const projectContainer = document.createElement("div");
