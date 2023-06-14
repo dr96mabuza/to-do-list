@@ -1,9 +1,12 @@
-const formContainer = document.querySelector('#AddNewTaskFormContainer');
+const formContainer = document.querySelector('#AddNewTask-modal');
 
 const form = document.querySelector('#AddTaskForm');
 form.addEventListener('submit', function (event) {
     event.preventDefault();
 });
+
+const editForm = document.querySelector("#EditPriority-modal");
+editForm.style.display = "none";
 
 // const addProjectButton = document.querySelector('.addProjects');
 // addProjectButton.addEventListener('click', () => {
@@ -51,6 +54,17 @@ const displayProjects = (projects, category) => {
         projectContainer.appendChild(
             createNewElement("button", `delete-${project.name}`, "delete")
             );
+
+        // const deleteButton = document.querySelector(`#delete-${project.name}`);
+        // deleteButton.addEventListener("click", () => {
+        //     // get delete project
+        // });
+        
+        const editButton = document.querySelector(`#edit-${project.name}`);
+        editButton.addEventListener("click", () => {
+            const editForm = document.querySelector("#EditPriority-modal");
+            editForm.style.display = "block";
+        });
 
         projectsContainer.appendChild(projectContainer); 
     });

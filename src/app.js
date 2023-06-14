@@ -2,7 +2,7 @@ import { addDays, format, isToday, isTomorrow, parse } from "date-fns";
 import uniqid from "uniqid";
 import { displayProjects } from "../src/DOM";
 
-format(new Date(2023, 6, 8), "yyyy/MM/dd")
+format(new Date(2023, 6, 8), "yyyy-MM-dd")
 
 const runToDoList = () => {
     class createProject {
@@ -21,7 +21,8 @@ const runToDoList = () => {
     localStorage.clear();
     const pp = new createProject("test", "test new", `2023-06-14`, "high");
     let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [pp];
-    console.log(isToday(projects[0].dueDate));
+    // console.log(projects[0].dateCreated);
+    // console.log(projects[0].dueDate);
     
     const getProjectsByCategory = (category) => {
         const result = projects.filter((project) => {
