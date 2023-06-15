@@ -13,19 +13,21 @@
 
 #main {
     display: flex;
-    flex: content;
-    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #sidebar {
     display: flex;
-    flex: content;
+    /* flex: row; */
     flex-direction: column;
 
 }
 
 #content {
-    display: grid;
+    display: flex;
+
     /* grid-row: 200px; */
 
 }
