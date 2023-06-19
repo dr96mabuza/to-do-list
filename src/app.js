@@ -19,7 +19,7 @@ const runToDoList = () => {
         }
     }
     localStorage.clear();
-    const pp = new createProject("test", "test new", `2023-06-14`, "high");
+    const pp = new createProject("test", "test new", `2023-06-19`, "high");
     let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [pp];
     // console.log(projects[0].dateCreated);
     // console.log(projects[0].dueDate);

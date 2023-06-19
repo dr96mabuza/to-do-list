@@ -4,7 +4,8 @@ import './formStyle.css';
 import {runToDoList} from './app';
 import './DOM';
 
-runToDoList();
+export const run = runToDoList();
+
 
 
 // const projectName = document.querySelector('#projectName');

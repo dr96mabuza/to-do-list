@@ -1,3 +1,5 @@
+import { runToDoList } from "./app";
+
 const formContainer = document.querySelector('#AddNewTask-modal');
 
 const form = document.querySelector('#AddTaskForm');
@@ -5,10 +7,13 @@ form.addEventListener('submit', function (event) {
     event.preventDefault();
 });
 
-const addTaskButton = document.querySelector("#addTask");
-addTaskButton.addEventListener("click", () => {
-    formContainer.style.display = "block";
+const addTaskButtons = document.querySelectorAll("#addTask");
+addTaskButtons.forEach((button)=>{
+    button.addEventListener("click", () => {
+        formContainer.style.display = "block";
+    });
 });
+
 
 const editForm = document.querySelector("#EditPriority-modal");
 // editForm.style.display = "none";
@@ -66,7 +71,7 @@ const displayProjects = (projects, category) => {
 
         const deleteButton = document.querySelector(`#delete-${project.name}`);
         deleteButton.addEventListener("click", () => {
-            console.log("pass");
+            new runToDoList.deleteProject(project.id);
         });
         
         const editButton = document.querySelector(`#edit-${project.name}`);
