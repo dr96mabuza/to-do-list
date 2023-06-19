@@ -7,7 +7,6 @@ format(new Date(2023, 6, 8), "yyyy-MM-dd")
 const runToDoList = () => {
     class createProject {
         constructor (name, discription, dueDate, priority) {
-        
             this.name = name;
             this.discription = discription;
             this.dueDate = parse(dueDate, "yyyy-MM-dd", new Date());
@@ -17,12 +16,19 @@ const runToDoList = () => {
             this.dateUpdated = new Date();
             // this.tasks = tasks;
         }
+
+        get dueDate() { return this.dueDate; };
+        set dueDate(newDueDate) {
+            this.dueDate = parse(newDueDate, "yyyy-MM-dd", new Date());
+        };
+        get priority() { return this.priority; };
+        set priority(priority) {this.priority = priority;};
+        get id() {return this.id; };
+        set dateUpdated(date) {this.dateUpdated = date; };
     }
     localStorage.clear();
     const pp = new createProject("test", "test new", `2023-06-19`, "high");
     let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [pp];
-    // console.log(projects[0].dateCreated);
-    // console.log(projects[0].dueDate);
     
     const getProjectsByCategory = (category) => {
         const result = projects.filter((project) => {
