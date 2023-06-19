@@ -36,6 +36,7 @@ body, #sidebar, #content, #main {
 
 #content {
     display: flex;
+    flex-direction: column;
 
     /* grid-row: 200px; */
 

@@ -5,6 +5,11 @@ form.addEventListener('submit', function (event) {
     event.preventDefault();
 });
 
+const addTaskButton = document.querySelector("#addTask");
+addTaskButton.addEventListener("click", () => {
+    formContainer.style.display = "block";
+});
+
 const editForm = document.querySelector("#EditPriority-modal");
 // editForm.style.display = "none";
 
