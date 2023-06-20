@@ -1,4 +1,4 @@
-import { runToDoList } from "./app";
+// import { runToDoList } from "./app";
 
 const formContainer = document.querySelector('#AddNewTask-modal');
 
@@ -47,34 +47,34 @@ const displayProjects = (projects, category) => {
         const projectContainer = document.createElement("div");
         
         projectContainer.appendChild(
-            createNewElement("div", "project-name", project.name)
+            createNewElement("div", "project-name", project.getName())
             );
         projectContainer.appendChild(
-            createNewElement("div", "project-discription", project.discription)
+            createNewElement("div", "project-discription", project.getDiscription())
             );
         projectContainer.appendChild(
-            createNewElement("div", "project-dueDate", project.dueDate)
+            createNewElement("div", "project-dueDate", project.getDueDate())
             );
         projectContainer.appendChild(
-            createNewElement("div", "project-priority", project.priority)
+            createNewElement("div", "project-priority", project.getPriority())
             );
         projectContainer.appendChild(
-            createNewElement("button", `edit-${project.name}`, "edit")
+            createNewElement("button", `edit-${project.getName()}`, "edit")
             );
         projectContainer.appendChild(
-            createNewElement("button", `delete-${project.name}`, "delete")
+            createNewElement("button", `delete-${project.getName()}`, "delete")
             );
 
         projectsContainer.appendChild(projectContainer); 
 
         // event listeners for each task
 
-        const deleteButton = document.querySelector(`#delete-${project.name}`);
+        const deleteButton = document.querySelector(`#delete-${project.getName()}`);
         deleteButton.addEventListener("click", () => {
-            new runToDoList.deleteProject(project.id);
+            new runToDoList.deleteProject(project.getId());
         });
         
-        const editButton = document.querySelector(`#edit-${project.name}`);
+        const editButton = document.querySelector(`#edit-${project.getName()}`);
         editButton.addEventListener("click", () => {
             const editForm = document.querySelector("#EditPriority-modal");
             editForm.style.display = "block";

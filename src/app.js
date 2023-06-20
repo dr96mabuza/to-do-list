@@ -6,37 +6,39 @@ format(new Date(2023, 6, 8), "yyyy-MM-dd")
 
 class createProject {
     constructor (name, discription, dueDate, priority) {
-        this.name = name;
-        this.discription = discription;
-        this.dueDate = parse(dueDate, "yyyy-MM-dd", new Date());
-        this.priority = priority;
-        this.id = uniqid();
-        this.dateCreated = new Date();
-        this.dateUpdated = new Date();
+        this._name = name;
+        this._discription = discription;
+        this._dueDate = parse(dueDate, "yyyy-MM-dd", new Date());
+        this._priority = priority;
+        this._id = uniqid();
+        this._dateCreated = new Date();
+        this._dateUpdated = new Date();
         // this.tasks = tasks;
     }
 
-    get dueDate() { return this.dueDate; };
-    set dueDate(newDueDate) {
-        this.dueDate = parse(newDueDate, "yyyy-MM-dd", new Date());
+    getName() {return this._name;};
+    getDiscription() {return this._discription;};
+    getDueDate() { return this._dueDate; };
+    setDueDate(newDueDate) {
+        this._dueDate = parse(newDueDate, "yyyy-MM-dd", new Date());
     };
-    get priority() { return this.priority; };
-    set priority(priority) {this.priority = priority;};
-    get id() {return this.id; };
-    set dateUpdated(date) {this.dateUpdated = date; };
+    getPriority() { return this._priority; };
+    setPriority(priority) {this._priority = priority;};
+    getId() {return this._id; };
+    setDateUpdated(dateUpdated) {this._dateUpdated = dateUpdated; };
 }
 
 localStorage.clear();
-const pp = new createProject("test", "test new", `2023-06-19`, "high");
+const pp = new createProject("test", "test new", `2023-06-20`, "high");
 let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [pp];
 
 const getProjectsByCategory = (category) => {
     const result = projects.filter((project) => {
-        if (isToday(project.dueDate) && category == "today") {
+        if (isToday(project.getDueDate()) && category == "today") {
             return project;
-        } else if (isTomorrow(project.dueDate) && category == "tomorrow") {
+        } else if (isTomorrow(project.getDueDate()) && category == "tomorrow") {
             return project;
-        } else if (project.dueDate > addDays(project.dueDate, 2) && project.dueDate <= addDays(project.dueDate, 7) && category == "week") {
+        } else if (project.getDueDate() > addDays(project.getDueDate(), 2) && project.getDueDate() <= addDays(project.getDueDate(), 7) && category == "week") {
             return project;
         }
     });
@@ -63,7 +65,7 @@ const saveProjects = (project) => {
 
 const getProjectById = (id) => {
     return projects.filter((project) => {
-        if (project.id == id) {
+        if (project.getId() == id) {
             return project;
         }
     });
@@ -72,15 +74,15 @@ const getProjectById = (id) => {
 const changePriority = (newPriority, id) => {
     const project = getProjectById(id);
     const index = projects.indexOf(project);
-    project.priority = newPriority;
-    project.dateUpdated = new Date();
+    project.setPriority(newPriority);
+    project.setDateUpdated(new Date());
     projects[index] = project;
     saveOnLocalStorage();
 }
 
 const deleteProject = (id) => {
     projects = projects.filter((project) => {
-        if (id != project.id) {
+        if (id != project.getId()) {
             return project;
         }
     });
@@ -89,7 +91,7 @@ const deleteProject = (id) => {
 const changeDueDate = (date, id) => {
     const index = projects.indexOf(project);
     const project = getProjectById(id);
-    project.dueDate = date;
+    project.setDueDate(date);
     projects[index] = project;
     saveOnLocalStorage();
 }

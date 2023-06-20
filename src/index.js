@@ -1,10 +1,16 @@
 
 import './style.css';
 import './formStyle.css';
-import {runToDoList} from './app';
+// import {runToDoList} from './app';
 import './DOM';
 
-export const run = runToDoList();
+import {
+    createNewProject,
+    saveProjects,
+    changePriority,
+    deleteProject,
+    changeDueDate
+} from "./app"
 
 
 
