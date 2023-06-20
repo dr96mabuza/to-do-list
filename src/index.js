@@ -1,30 +1,18 @@
-
 import './style.css';
 import './formStyle.css';
-// import {runToDoList} from './app';
+import { createNewProject, saveProjects } from "./app";
 import './DOM';
 
-import {
-    createNewProject,
-    saveProjects,
-    changePriority,
-    deleteProject,
-    changeDueDate
-} from "./app"
 
-
-
-// const projectName = document.querySelector('#projectName');
-// const projectDiscription = document.querySelector('#projectDiscription');
-// const dateDue = document.querySelector('#dueDate');
-// const tasks = document.querySelector('#projectTasks');
+const projectName = document.querySelector('#project-name');
+const projectDiscription = document.querySelector('#project-discription');
+const dateDue = document.querySelector('#project-dueDate');
+const priority = document.querySelector('#project-priority');
 
 const submitButton = document.querySelector('#submit');
-// submitButton.addEventListener('click', () => {
-//     if(projectName.value != '' && projectDiscription.value != '' && tasks.value != ''){
-//         // run.saveProjects(projectName.value, projectDiscription.value, dateDue.value, tasks.value);
-//         // run.displayProjects();
-//         // run.todaysProjects();
-//         formContainer.style.display = 'none';
-//     };
-// });
+submitButton.addEventListener('click', () => {
+    if(projectName.value != '' && projectDiscription.value != '' && dateDue != "" && priority.value != ''){
+        saveProjects(createNewProject(projectName.value, projectDiscription.value, dateDue.value, priority.value));
+        // formContainer.style.display = 'none';
+    };
+});

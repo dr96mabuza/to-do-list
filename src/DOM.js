@@ -1,4 +1,5 @@
-// import { runToDoList } from "./app";
+import { changePriority, deleteProject, changeDueDate } from "./app";
+
 
 const formContainer = document.querySelector('#AddNewTask-modal');
 
@@ -71,7 +72,7 @@ const displayProjects = (projects, category) => {
 
         const deleteButton = document.querySelector(`#delete-${project.getName()}`);
         deleteButton.addEventListener("click", () => {
-            new runToDoList.deleteProject(project.getId());
+            deleteProject(project.getId());
         });
         
         const editButton = document.querySelector(`#edit-${project.getName()}`);

@@ -38,17 +38,22 @@ const getProjectsByCategory = (category) => {
             return project;
         } else if (isTomorrow(project.getDueDate()) && category == "tomorrow") {
             return project;
-        } else if (project.getDueDate() > addDays(project.getDueDate(), 2) && project.getDueDate() <= addDays(project.getDueDate(), 7) && category == "week") {
+        } else if (project.getDueDate() > addDays(new Date(), 2) && project.getDueDate() <= addDays(new Date(), 7) && category == "week") {
             return project;
         }
     });
     return result;
 }
 
-(function (){
+const displayByCategory = () => {
     const categoryList = ["today", "tomorrow", "week"];
     categoryList.forEach((category) => { displayProjects(getProjectsByCategory(category), category); });
+};
+
+(function (){
+    displayByCategory();
 })();
+
 
 const saveOnLocalStorage = () => {
     localStorage.setItem("todos", JSON.stringify(projects));
@@ -60,7 +65,8 @@ const createNewProject = (name, discription, dueDate, priority) => {
 
 const saveProjects = (project) => {
     projects.push(project);
-    saveOnLocalStorage()
+    saveOnLocalStorage();
+    displayByCategory();
 }
 
 const getProjectById = (id) => {
