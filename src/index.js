@@ -2,6 +2,7 @@ import './style.css';
 import './formStyle.css';
 import { createNewProject, saveProjects } from "./app";
 import './DOM';
+import {formContainer} from "./DOM";
 
 
 const projectName = document.querySelector('#project-name');
@@ -13,6 +14,6 @@ const submitButton = document.querySelector('#submit');
 submitButton.addEventListener('click', () => {
     if(projectName.value != '' && projectDiscription.value != '' && dateDue != "" && priority.value != ''){
         saveProjects(createNewProject(projectName.value, projectDiscription.value, dateDue.value, priority.value));
-        // formContainer.style.display = 'none';
+        formContainer.style.display = 'none';
     };
 });

@@ -88,4 +88,4 @@ const displayProjects = (projects, category) => {
     //     // call delete method
     // });
 
-export {displayProjects};
+export {displayProjects, formContainer};
