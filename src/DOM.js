@@ -45,41 +45,45 @@ const displayProjects = (projects, category) => {
     const projectsContainer = document.querySelector(`#${category}`);
 
     projects.forEach((project) => {
-        const projectContainer = document.createElement("div");
+        if (document.querySelector(`.${project.getId()}`) == null) {
+            const projectContainer = document.createElement("div");
+            projectContainer.setAttribute("class", `${project.getId()}`)
         
-        projectContainer.appendChild(
-            createNewElement("div", "project-name", project.getName())
-            );
-        projectContainer.appendChild(
-            createNewElement("div", "project-discription", project.getDiscription())
-            );
-        projectContainer.appendChild(
-            createNewElement("div", "project-dueDate", project.getDueDate())
-            );
-        projectContainer.appendChild(
-            createNewElement("div", "project-priority", project.getPriority())
-            );
-        projectContainer.appendChild(
-            createNewElement("button", `edit-${project.getName()}`, "edit")
-            );
-        projectContainer.appendChild(
-            createNewElement("button", `delete-${project.getName()}`, "delete")
-            );
+            projectContainer.appendChild(
+                createNewElement("div", "project-name", project.getName())
+                );
+            projectContainer.appendChild(
+                createNewElement("div", "project-discription", project.getDiscription())
+                );
+            projectContainer.appendChild(
+                createNewElement("div", "project-dueDate", project.getDueDate())
+                );
+            projectContainer.appendChild(
+                createNewElement("div", "project-priority", project.getPriority())
+                );
+            projectContainer.appendChild(
+                createNewElement("button", `edit-${project.getName()}`, "edit")
+                );
+            projectContainer.appendChild(
+                createNewElement("button", `delete-${project.getName()}`, "delete")
+                );
+    
+            projectsContainer.appendChild(projectContainer); 
+    
+            // event listeners for each task
+    
+            const deleteButton = document.querySelector(`#delete-${project.getName()}`);
+            deleteButton.addEventListener("click", () => {
+                deleteProject(project.getId());
+            });
+            
+            const editButton = document.querySelector(`#edit-${project.getName()}`);
+            editButton.addEventListener("click", () => {
+                const editForm = document.querySelector("#EditPriority-modal");
+                editForm.style.display = "block";
+            });
+        };
 
-        projectsContainer.appendChild(projectContainer); 
-
-        // event listeners for each task
-
-        const deleteButton = document.querySelector(`#delete-${project.getName()}`);
-        deleteButton.addEventListener("click", () => {
-            deleteProject(project.getId());
-        });
-        
-        const editButton = document.querySelector(`#edit-${project.getName()}`);
-        editButton.addEventListener("click", () => {
-            const editForm = document.querySelector("#EditPriority-modal");
-            editForm.style.display = "block";
-        });
     });
 };
 
