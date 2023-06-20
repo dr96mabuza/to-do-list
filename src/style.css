@@ -47,6 +47,10 @@ body, #sidebar, #content, #main {
     height: 100%;
 }
 
+#today, #week, #tomorrow {
+    overflow: scroll;
+}
+
 .laterTasks {
     display: flex;
     flex-direction: row;
