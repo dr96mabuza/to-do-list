@@ -62,7 +62,7 @@ body, #sidebar, #content, #main {
     height: 50%;
 }
 
-#tomorrow, week {
+#tomorrow, #week {
     width: 50%;
     height: 100%;
 }
