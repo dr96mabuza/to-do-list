@@ -60,6 +60,7 @@ const changePriority = (newPriority, id) => {
     project.setDateUpdated(new Date());
     projects[index] = project;
     saveOnLocalStorage();
+    displayByCategory();
 }
 
 const deleteProject = (id) => {

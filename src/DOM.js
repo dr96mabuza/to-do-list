@@ -1,6 +1,6 @@
 import { changePriority, deleteProject, changeDueDate } from "./app";
 
-
+let id = null;
 const formContainer = document.querySelector('#AddNewTask-modal');
 
 const form = document.querySelector('#AddTaskForm');
@@ -15,23 +15,10 @@ addTaskButtons.forEach((button)=>{
     });
 });
 
-
 const editForm = document.querySelector("#EditPriority-modal");
-// editForm.style.display = "none";
-
-// const addProjectButton = document.querySelector('.addProjects');
-// addProjectButton.addEventListener('click', () => {
-//     formContainer.style.display = 'block';
-// });
-
-// const editForm = document.querySelector("#editForm");
-// editForm.addEventListener("submit", (event) => { event.preventDefault(); });
-
-// const submitEditForm = document.querySelector("#editForm");
-// submitEditForm.addEventListener("click", () => {
-//     // ?????
-//     // needs to call edit method
-// });
+editForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+});
 
 const createNewElement = (type, id, textContent) => {
     const container = document.createElement(type);
@@ -40,6 +27,12 @@ const createNewElement = (type, id, textContent) => {
 
     return container;
 };
+
+const submitPriorityButton = document.querySelector("#submitNewPriority");
+submitPriorityButton.addEventListener("click", () => {
+    console.log(document.querySelector("#new-priority").value)
+    changePriority(document.querySelector("#new-priority").value, id);
+});
 
 const displayProjects = (projects, category) => {
     const projectsContainer = document.querySelector(`#${category}`);
@@ -75,12 +68,13 @@ const displayProjects = (projects, category) => {
             const deleteButton = document.querySelector(`#delete-${project.getName()}`);
             deleteButton.addEventListener("click", () => {
                 deleteProject(project.getId());
+                document.querySelector(`.${project.getId()}`).remove();
             });
             
             const editButton = document.querySelector(`#edit-${project.getName()}`);
             editButton.addEventListener("click", () => {
-                const editForm = document.querySelector("#EditPriority-modal");
                 editForm.style.display = "block";
+                id = project.getId();
             });
         };
 
