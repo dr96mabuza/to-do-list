@@ -30,8 +30,9 @@ const createNewElement = (type, id, textContent) => {
 
 const submitPriorityButton = document.querySelector("#submitNewPriority");
 submitPriorityButton.addEventListener("click", () => {
-    console.log(document.querySelector("#new-priority").value)
     changePriority(document.querySelector("#new-priority").value, id);
+    document.querySelector("#new-priority").value = "";
+    editForm.style.display = "none";
 });
 
 const displayProjects = (projects, category) => {
@@ -81,9 +82,9 @@ const displayProjects = (projects, category) => {
     });
 };
 
-    // const deleteButton = document.querySelector(`#delete-${project.name}`);
-    // deleteButton.addEventListener("click", () => {
-    //     // call delete method
-    // });
+const changeUpdatedProjectDisplay = (project) => {
+    document.querySelector(`.${project.getId()} :nth-child(3)`).textContent = project.getDueDate();
+    document.querySelector(`.${project.getId()} :nth-child(4)`).textContent = project.getPriority();
+}
 
-export {displayProjects, formContainer};
+export {displayProjects, formContainer, changeUpdatedProjectDisplay};

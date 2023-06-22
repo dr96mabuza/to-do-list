@@ -1,5 +1,5 @@
 import { addDays, format, isToday, isTomorrow } from "date-fns";
-import { displayProjects } from "../src/DOM";
+import { displayProjects, changeUpdatedProjectDisplay } from "../src/DOM";
 import {createProject} from "./components/objects/createProject";
 
 format(new Date(2023, 6, 8), "yyyy-MM-dd")
@@ -60,7 +60,7 @@ const changePriority = (newPriority, id) => {
     project.setDateUpdated(new Date());
     projects[index] = project;
     saveOnLocalStorage();
-    displayByCategory();
+    changeUpdatedProjectDisplay(project);
 }
 
 const deleteProject = (id) => {
