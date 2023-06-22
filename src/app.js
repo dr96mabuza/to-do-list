@@ -3,8 +3,29 @@ import { displayProjects, changeUpdatedProjectDisplay } from "../src/DOM";
 import {createProject} from "./components/objects/createProject";
 
 localStorage.clear();
-const pp = new createProject("test", "test new", `2023-06-22`, "high");
-let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [pp];
+const placeholderProjects = () => {
+    let results = []
+    results.push(new createProject("test", "test new", format(new Date(), "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test", "test new", format(new Date(), "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test", "test new", format(new Date(), "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test", "test new", format(new Date(), "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test", "test new", format(new Date(), "yyyy-MM-dd"), "high"));
+
+    results.push(new createProject("test", "test new", format(addDays(new Date(),1),  "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test", "test new", format(addDays(new Date(),1),  "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test", "test new", format(addDays(new Date(),1),  "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test", "test new", format(addDays(new Date(),1),  "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test", "test new", format(addDays(new Date(),1),  "yyyy-MM-dd"), "high"));
+
+    results.push(new createProject("test", "test new", format(addDays(new Date(),2),  "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test", "test new", format(addDays(new Date(),2),  "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test", "test new", format(addDays(new Date(),2),  "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test", "test new", format(addDays(new Date(),2),  "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test", "test new", format(addDays(new Date(),2),  "yyyy-MM-dd"), "high"));
+
+    return results;
+}
+let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : placeholderProjects();
 
 const getProjectsByCategory = (category) => {
     const result = projects.filter((project) => {
