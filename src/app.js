@@ -5,7 +5,7 @@ import {createProject} from "./components/objects/createProject";
 format(new Date(2023, 6, 8), "yyyy-MM-dd")
 
 localStorage.clear();
-const pp = new createProject("test", "test new", `2023-06-21`, "high");
+const pp = new createProject("test", "test new", `2023-06-22`, "high");
 let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [pp];
 
 const getProjectsByCategory = (category) => {
@@ -46,11 +46,11 @@ const saveProjects = (project) => {
 }
 
 const getProjectById = (id) => {
-    return projects.filter((project) => {
+    return (projects.filter((project) => {
         if (project.getId() == id) {
             return project;
         }
-    });
+    })[0]);
 }
 
 const changePriority = (newPriority, id) => {
