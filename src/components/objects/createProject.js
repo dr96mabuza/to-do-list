@@ -7,7 +7,7 @@ class createProject {
         this._discription = discription;
         this._dueDate = parse(dueDate, "yyyy-MM-dd", new Date());
         this._priority = priority;
-        this._id = uniqid();
+        this._id = uniqid.time();
         this._dateCreated = new Date();
         this._dateUpdated = new Date();
         // this.tasks = tasks;
