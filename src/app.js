@@ -2,8 +2,6 @@ import { addDays, format, isToday, isTomorrow } from "date-fns";
 import { displayProjects, changeUpdatedProjectDisplay } from "../src/DOM";
 import {createProject} from "./components/objects/createProject";
 
-format(new Date(2023, 6, 8), "yyyy-MM-dd")
-
 localStorage.clear();
 const pp = new createProject("test", "test new", `2023-06-22`, "high");
 let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [pp];
@@ -14,7 +12,9 @@ const getProjectsByCategory = (category) => {
             return project;
         } else if (isTomorrow(project.getDueDate()) && category == "tomorrow") {
             return project;
-        } else if (project.getDueDate() > addDays(new Date(), 1) && project.getDueDate() <= addDays(new Date(), 7) && category == "week") {
+        } else if (project.getDueDate() > addDays(new Date(), 1) 
+                && project.getDueDate() <= addDays(new Date(), 7) 
+                && category == "week") {
             return project;
         }
     });

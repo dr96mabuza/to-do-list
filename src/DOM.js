@@ -1,4 +1,5 @@
 import { changePriority, deleteProject, changeDueDate } from "./app";
+import { format } from "date-fns";
 
 let id = null;
 const formContainer = document.querySelector('#AddNewTask-modal');
@@ -50,7 +51,7 @@ const displayProjects = (projects, category) => {
                 createNewElement("div", "project-discription", project.getDiscription())
                 );
             projectContainer.appendChild(
-                createNewElement("div", "project-dueDate", project.getDueDate())
+                createNewElement("div", "project-dueDate", format(project.getDueDate(), "yyyy-MM-dd"))
                 );
             projectContainer.appendChild(
                 createNewElement("div", "project-priority", project.getPriority())
@@ -84,7 +85,7 @@ const displayProjects = (projects, category) => {
 
 const changeUpdatedProjectDisplay = (project) => {
     document.querySelector(`.${project.getId()} :nth-child(3)`).textContent = project.getDueDate();
-    document.querySelector(`.${project.getId()} :nth-child(4)`).textContent = project.getPriority();
+    document.querySelector(`.${project.getId()} :nth-child(4)`).textContent = format(project.getDueDate(), "yyyy-MM-dd");
 }
 
 export {displayProjects, formContainer, changeUpdatedProjectDisplay};
