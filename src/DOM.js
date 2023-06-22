@@ -87,5 +87,8 @@ const changeUpdatedProjectDisplay = (project) => {
     document.querySelector(`.${project.getId()} :nth-child(3)`).textContent = project.getDueDate();
     document.querySelector(`.${project.getId()} :nth-child(4)`).textContent = format(project.getDueDate(), "yyyy-MM-dd");
 }
+const displayNumberOfProjects = (projects) => {
+    document.querySelector("#content-header :last-child").textContent = projects.length;
+}
 
-export {displayProjects, formContainer, changeUpdatedProjectDisplay};
+export {displayProjects, formContainer, changeUpdatedProjectDisplay, displayNumberOfProjects};
