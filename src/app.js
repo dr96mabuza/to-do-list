@@ -14,7 +14,7 @@ const getProjectsByCategory = (category) => {
             return project;
         } else if (isTomorrow(project.getDueDate()) && category == "tomorrow") {
             return project;
-        } else if (project.getDueDate() > addDays(new Date(), 2) && project.getDueDate() <= addDays(new Date(), 7) && category == "week") {
+        } else if (project.getDueDate() > addDays(new Date(), 1) && project.getDueDate() <= addDays(new Date(), 7) && category == "week") {
             return project;
         }
     });
