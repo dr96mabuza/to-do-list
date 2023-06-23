@@ -75,6 +75,18 @@ input, textarea {
     border-radius: 5px;
 }
 
+.close {
+    font-size: 20px;
+    float: right;
+    color: #aaa;
+}
+
+.close :hover {
+    /* color: black;
+    text-decoration: none;
+    cursor: ; */
+}
+
 /* main container */
 #main {
     flex-direction: row;
