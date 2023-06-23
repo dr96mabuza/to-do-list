@@ -16,6 +16,10 @@ body, #sidebar, #content, #main {
     display: none;
 }
 
+#project-discription {
+    resize: none;
+}
+
 #main {
     display: flex;
     flex-direction: row;
@@ -28,7 +32,8 @@ body, #sidebar, #content, #main {
     display: flex;
     /* flex: row; */
     flex-direction: column;
-    max-width: 30vw;
+    max-width: 20%;
+    min-width: 10%;
     justify-content: flex-start;
     align-items: flex-start;
 
