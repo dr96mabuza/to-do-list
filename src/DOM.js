@@ -43,7 +43,8 @@ const displayProjects = (projects, category) => {
         if (document.querySelector(`.${project.getId()}`) == null) {
             const projectContainer = document.createElement("div");
             projectContainer.setAttribute("class", `${project.getId()}`)
-            projectContainer.style.borderTop = "solid antiquewhite 0.3px"
+            projectContainer.style.borderTop = "solid antiquewhite 0.3px";
+            projectContainer.style.padding = "3px";
 
             projectContainer.appendChild(
                 createNewElement("div", "project-name", project.getName())
