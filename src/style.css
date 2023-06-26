@@ -145,15 +145,19 @@ input, textarea {
 #today {
     width: 100%;
     min-width: 250px;
-    height: 350px;
+    height: 372px;
     border: solid antiquewhite 0.5px;
+    border-radius: 7px;
+    padding: 5px;
 }
 
 #tomorrow, #week {
     min-width: 250px;
     width: 50%;
-    height: 350px;
+    height: 372px;
     border: solid antiquewhite 0.5px;
+    border-radius: 7px;
+    padding: 5px;
 }
 
 #today-projects, #tomorrow-projects, #week-projects {
