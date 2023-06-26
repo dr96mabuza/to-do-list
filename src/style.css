@@ -146,16 +146,18 @@ input, textarea {
     width: 100%;
     min-width: 250px;
     height: 350px;
+    border: solid antiquewhite 0.5px;
 }
 
 #tomorrow, #week {
     min-width: 250px;
     width: 50%;
     height: 350px;
+    border: solid antiquewhite 0.5px;
 }
 
 #today-projects, #tomorrow-projects, #week-projects {
-    border: solid antiquewhite 0.5px;
+    
     height: 100%;
     padding: 5px 10px;
 }
