@@ -116,7 +116,8 @@ input, textarea {
 }
 
 #tasks > div,
-#sidebar-footer > div {
+#sidebar-footer > div,
+#searchbar-container {
     display: flex;
     flex-direction: row;
     gap: 5px;
@@ -128,7 +129,8 @@ input, textarea {
 #stickywallIcon, 
 #calendarIcon, 
 #todayIcon, 
-#upcomingIcon {
+#upcomingIcon,
+#searchIcon {
     width: 30px;
     height: 30px;
 }

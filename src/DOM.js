@@ -93,6 +93,8 @@ const displayNumberOfProjects = (projects) => {
     document.querySelector("#content-header :last-child").textContent = projects.length;
 }
 
+const searchIcon = document.querySelector("#searchIcon");
+searchIcon.src = "../src/components/icons/magnify.svg";
 
 // tasks
 const upcomingIcon = document.querySelector("#upcomingIcon");
