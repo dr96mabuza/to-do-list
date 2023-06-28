@@ -5,6 +5,13 @@
     padding: 0;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%
+    
+}
+
 /* shared */
 
 #AddNewTask-modal, 
@@ -58,6 +65,8 @@ form>button:hover {
 #AddTaskForm {
     width: 400px;
     height: 400px;
+    /* display: block;
+    margin: auto; */
 
 }
 
