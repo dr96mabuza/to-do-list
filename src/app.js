@@ -7,15 +7,15 @@ const placeholderProjects = () => {
     let results = []
     results.push(new createProject("test1", "test new", format(new Date(), "yyyy-MM-dd"), "high"));
     results.push(new createProject("test2", "test new", format(new Date(), "yyyy-MM-dd"), "high"));
-    // results.push(new createProject("test3", "test new", format(new Date(), "yyyy-MM-dd"), "high"));
-    // results.push(new createProject("test4", "test new", format(new Date(), "yyyy-MM-dd"), "high"));
-    // results.push(new createProject("test5", "test new", format(new Date(), "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test3", "test new", format(new Date(), "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test4", "test new", format(new Date(), "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test5", "test new", format(new Date(), "yyyy-MM-dd"), "high"));
 
     results.push(new createProject("test6", "test new", format(addDays(new Date(),1),  "yyyy-MM-dd"), "high"));
     results.push(new createProject("test7", "test new", format(addDays(new Date(),1),  "yyyy-MM-dd"), "high"));
-    // results.push(new createProject("test8", "test new", format(addDays(new Date(),1),  "yyyy-MM-dd"), "high"));
-    // results.push(new createProject("test9", "test new", format(addDays(new Date(),1),  "yyyy-MM-dd"), "high"));
-    // results.push(new createProject("test10", "test new", format(addDays(new Date(),1),  "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test8", "test new", format(addDays(new Date(),1),  "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test9", "test new", format(addDays(new Date(),1),  "yyyy-MM-dd"), "high"));
+    results.push(new createProject("test10", "test new", format(addDays(new Date(),1),  "yyyy-MM-dd"), "high"));
 
     results.push(new createProject("test11", "test new", format(addDays(new Date(),2),  "yyyy-MM-dd"), "high"));
     results.push(new createProject("test12", "test new", format(addDays(new Date(),2),  "yyyy-MM-dd"), "high"));

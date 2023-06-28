@@ -65,8 +65,8 @@ form>button:hover {
 #AddTaskForm {
     width: 400px;
     height: 400px;
-    /* display: block;
-    margin: auto; */
+    display: block;
+    margin: auto;
 
 }
 
@@ -101,7 +101,7 @@ input, textarea {
     flex-direction: row;
     gap: 15px;
     padding: 15px;
-    height: 96vh;
+    height: 96%;
 }
 
 /* sidebar */
@@ -112,6 +112,7 @@ input, textarea {
     background-color:antiquewhite;
     padding: 10px;
     border-radius: 10px;
+    /* height: 100%; */
 }
 
 /* content container */
@@ -131,14 +132,13 @@ input, textarea {
     border: solid antiquewhite 0.5px;
     padding: 10px;
     border-radius: 10px;
-    height: 99%;
     justify-content: space-evenly;
 }
 
 .laterTasks {
     flex-direction: row;
-    justify-content: flex-start;
-    justify-items: center;
+    flex-wrap: wrap;
+    width: 100%;
     margin-top: 15px;
     gap: 10px;
 }
@@ -152,21 +152,23 @@ input, textarea {
 } */
 
 #today {
-    width: 99.25%;
-    min-width: 250px;
+    /* width: 99.25%; */
+    min-width: 360px;
     height: 365px;
     border: solid antiquewhite 0.5px;
     border-radius: 7px;
     padding: 5px;
+    overflow: scroll;
 }
 
 #tomorrow, #week {
-    min-width: 250px;
-    width: 50%;
+    width: 48.9%;
+    min-width: 360px;
     height: 365px;
     border: solid antiquewhite 0.5px;
     border-radius: 7px;
     padding: 5px;
+    overflow: hidden;
 }
 
 #today-projects, #tomorrow-projects, #week-projects {
