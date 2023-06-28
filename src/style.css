@@ -115,6 +115,16 @@ input, textarea {
     /* height: 100%; */
 }
 
+#signoutIcon, 
+#settingsIcon, 
+#stickywallIcon, 
+#calendarIcon, 
+#todayIcon, 
+#upcomingIcon {
+    width: 30px;
+    height: 30px;
+}
+
 /* content container */
 #content {
     flex-direction: column;

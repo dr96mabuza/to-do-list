@@ -93,4 +93,22 @@ const displayNumberOfProjects = (projects) => {
     document.querySelector("#content-header :last-child").textContent = projects.length;
 }
 
+
+// tasks
+const upcomingIcon = document.querySelector("#upcomingIcon");
+upcomingIcon.src = "../src/components/icons/chevron-double-right.svg";
+const todayIcon = document.querySelector("#todayIcon");
+todayIcon.src = "../src/components/icons/format-list-bulleted.svg";
+const calendarIcon = document.querySelector("#calendarIcon");
+calendarIcon.src = "../src/components/icons/calendar-month-outline.svg";
+const stickywallIcon = document.querySelector("#stickywallIcon");
+stickywallIcon.src = "../src/components/icons/note.svg";
+
+// 
+const settingsIcon = document.querySelector("#settingsIcon");
+settingsIcon.src = "../src/components/icons/tune.svg";
+const signoutIcon = document.querySelector("#signoutIcon");
+signoutIcon.src = "../src/components/icons/arrow-right-thin-circle-outline.svg"
+
+
 export {displayProjects, formContainer, changeUpdatedProjectDisplay, displayNumberOfProjects};
