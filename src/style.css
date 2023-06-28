@@ -115,6 +115,14 @@ input, textarea {
     /* height: 100%; */
 }
 
+#tasks > div,
+#sidebar-footer > div {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    height: 40px;
+}
+
 #signoutIcon, 
 #settingsIcon, 
 #stickywallIcon, 
