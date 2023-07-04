@@ -10,6 +10,9 @@ const projectDiscription = document.querySelector('#project-discription');
 const dateDue = document.querySelector('#project-dueDate');
 const priority = document.querySelector('#project-priority');
 
+/**
+ * remove text after form has been submitted.
+ */
 const resetForm = () => {
     projectName.value = '';
     projectDiscription.value = '';
@@ -17,6 +20,9 @@ const resetForm = () => {
     priority.value = "";
 };
 
+/**
+ * create new project after form has benn submitted and hide form.
+ */
 const submitButton = document.querySelector('#submit');
 submitButton.addEventListener('click', () => {
     if(projectName.value != '' && projectDiscription.value != '' && dateDue != "" && priority.value != ''){

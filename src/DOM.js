@@ -1,14 +1,25 @@
 import { changePriority, deleteProject, changeDueDate } from "./app";
 import { format } from "date-fns";
+import { createProject } from "./components/objects/createProject";
 
 let id = null;
+
+/**
+ * get new task form.
+ */
 const formContainer = document.querySelector('#AddNewTask-modal');
 
+/**
+ * prevent event default behavior when submitting form.
+ */
 const form = document.querySelector('#AddTaskForm');
 form.addEventListener('submit', function (event) {
     event.preventDefault();
 });
 
+/**
+ * display add new task form on add button click.
+ */
 const addTaskButtons = document.querySelectorAll("#addTask");
 addTaskButtons.forEach((button)=>{
     button.addEventListener("click", () => {
@@ -16,11 +27,22 @@ addTaskButtons.forEach((button)=>{
     });
 });
 
+/**
+ * prevent event default behavior when submitting form.
+ */
 const editForm = document.querySelector("#EditPriority-modal");
 editForm.addEventListener('submit', function (event) {
     event.preventDefault();
 });
 
+/**
+ * create new html element. adding id and text attribute.
+ * to render project data.
+ * @param {string} type 
+ * @param {string} id 
+ * @param {string} textContent 
+ * @returns html element
+ */
 const createNewElement = (type, id, textContent) => {
     const container = document.createElement(type);
     container.setAttribute("id", id);
@@ -29,13 +51,25 @@ const createNewElement = (type, id, textContent) => {
     return container;
 };
 
+/**
+ * select/get new priority button.
+ */
 const submitPriorityButton = document.querySelector("#submitNewPriority");
+/**
+ * add event listner on submit new priority button.
+ * submit new priority and hide form display.
+ */
 submitPriorityButton.addEventListener("click", () => {
     changePriority(document.querySelector("#new-priority").value, id);
     document.querySelector("#new-priority").value = "";
     editForm.style.display = "none";
 });
 
+/**
+ * create project container and display based on category. ie today, tomorrow...
+ * @param {Array} projects 
+ * @param {string} category 
+ */
 const displayProjects = (projects, category) => {
     const projectsContainer = document.querySelector(`#${category}-projects`);
 
@@ -85,14 +119,25 @@ const displayProjects = (projects, category) => {
     });
 };
 
+/**
+ * render new data after change of priority.
+ * @param {createProject} project 
+ */
 const changeUpdatedProjectDisplay = (project) => {
     document.querySelector(`.${project.getId()} :nth-child(3)`).textContent = project.getDueDate();
     document.querySelector(`.${project.getId()} :nth-child(4)`).textContent = format(project.getDueDate(), "yyyy-MM-dd");
 }
+
+/**
+ * display the number of current projects.
+ * @param {Array} projects 
+ */
 const displayNumberOfProjects = (projects) => {
     document.querySelector("#content-header :last-child").textContent = projects.length;
 }
 
+
+/* ADD SIDEBAR ICONS */
 const searchIcon = document.querySelector("#searchIcon");
 searchIcon.src = "../src/components/icons/magnify.svg";
 

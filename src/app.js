@@ -27,6 +27,11 @@ const placeholderProjects = () => {
 }
 let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : placeholderProjects();
 
+/**
+ * takes in {category} string to get {array} of projects by specific dates 
+ * @param {string} category 
+ * @returns {Array}
+ */
 const getProjectsByCategory = (category) => {
     const result = projects.filter((project) => {
         if (isToday(project.getDueDate()) && category == "today") {
@@ -42,6 +47,9 @@ const getProjectsByCategory = (category) => {
     return result;
 }
 
+/**
+ * displays projects by specific category on html.
+ */
 const displayByCategory = () => {
     const categoryList = ["today", "tomorrow", "week"];
     categoryList.forEach((category) => { displayProjects(getProjectsByCategory(category), category); });
@@ -50,14 +58,29 @@ const displayByCategory = () => {
 displayNumberOfProjects(projects);
 displayByCategory();
 
+/**
+ * save current projects on local storage.
+ */
 const saveOnLocalStorage = () => {
     localStorage.setItem("todos", JSON.stringify(projects));
 }
 
+/**
+ * create new project.
+ * @param {string} name 
+ * @param {string} discription 
+ * @param {string} dueDate 
+ * @param {string} priority 
+ * @returns 
+ */
 const createNewProject = (name, discription, dueDate, priority) => {
     return new createProject(name, discription, dueDate, priority);
 }
 
+/**
+ * add new project to array list and then save on local storage and then refresh display.
+ * @param {createProject} project 
+ */
 const saveProjects = (project) => {
     projects.push(project);
     saveOnLocalStorage();
@@ -65,6 +88,11 @@ const saveProjects = (project) => {
     displayNumberOfProjects(projects);
 }
 
+/**
+ * filter through all the project to get the exact project.
+ * @param {uniqid} id 
+ * @returns {createProject} project
+ */
 const getProjectById = (id) => {
     return (projects.filter((project) => {
         if (project.getId() == id) {
@@ -73,6 +101,12 @@ const getProjectById = (id) => {
     })[0]);
 }
 
+/**
+ * get the project from all projects and edit priority.
+ * render new data on webpage.
+ * @param {string} newPriority 
+ * @param {uniqid} id 
+ */
 const changePriority = (newPriority, id) => {
     const project = getProjectById(id);
     const index = projects.indexOf(project);
@@ -83,6 +117,10 @@ const changePriority = (newPriority, id) => {
     changeUpdatedProjectDisplay(project);
 }
 
+/**
+ * remove the project from the list
+ * @param {uniqid} id 
+ */
 const deleteProject = (id) => {
     projects = projects.filter((project) => {
         if (id != project.getId()) {
@@ -92,6 +130,11 @@ const deleteProject = (id) => {
     displayNumberOfProjects(projects);
 }
 
+/**
+ * change project new date to a new later date.
+ * @param {string} date 
+ * @param {uniqid} id 
+ */
 const changeDueDate = (date, id) => {
     const index = projects.indexOf(project);
     const project = getProjectById(id);
