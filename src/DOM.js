@@ -52,6 +52,18 @@ const createNewElement = (type, id, textContent) => {
 };
 
 /**
+ * create unique checkbox for each project.
+ * @param {uniqid} id 
+ * @returns html element
+ */
+const createCheckboxElement = (id) => {
+    const container = document.createElement("INPUT");
+    container.setAttribute("type", "checkbox");
+    container.setAttribute("id", `checkbox-${id}`);
+    return container;
+}
+
+/**
  * select/get new priority button.
  */
 const submitPriorityButton = document.querySelector("#submitNewPriority");
@@ -80,10 +92,11 @@ const displayProjects = (projects, category) => {
             projectContainer.style.borderTop = "solid antiquewhite 0.3px";
             projectContainer.style.padding = "2px 3px";
 
-            const container = document.createElement("INPUT");
-            container.setAttribute("type", "checkbox");
-            container.setAttribute("id", `checkbox-${project.getId()}`);
-            projectContainer.appendChild(container);
+
+            projectContainer
+            .appendChild(
+                createCheckboxElement(project.getId())
+            );
             projectContainer
             .appendChild(
                 createNewElement(
