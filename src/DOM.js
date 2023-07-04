@@ -80,36 +80,73 @@ const displayProjects = (projects, category) => {
             projectContainer.style.borderTop = "solid antiquewhite 0.3px";
             projectContainer.style.padding = "2px 3px";
 
-            projectContainer.appendChild(
-                createNewElement("div", "project-name", project.getName())
+            projectContainer
+            .appendChild(
+                createNewElement(
+                    "div", 
+                    "project-name", 
+                    project.getName()
+                    )
                 );
-            projectContainer.appendChild(
-                createNewElement("div", "project-discription", project.getDiscription())
+            projectContainer
+            .appendChild(
+                createNewElement(
+                    "div", 
+                    "project-discription", 
+                    project.getDiscription()
+                    )
                 );
-            projectContainer.appendChild(
-                createNewElement("div", "project-dueDate", format(project.getDueDate(), "yyyy-MM-dd"))
+            projectContainer
+            .appendChild(
+                createNewElement(
+                    "div", 
+                    "project-dueDate", 
+                    format(
+                        project.getDueDate(), 
+                        "yyyy-MM-dd"
+                        )
+                    )
                 );
-            projectContainer.appendChild(
-                createNewElement("div", "project-priority", project.getPriority())
+            projectContainer
+            .appendChild(
+                createNewElement(
+                    "div", 
+                    "project-priority", 
+                    project.getPriority()
+                    )
                 );
-            projectContainer.appendChild(
-                createNewElement("button", `edit-${project.getName()}`, "edit")
+            projectContainer
+            .appendChild(
+                createNewElement(
+                    "button", 
+                    `edit-${project.getName()}`, 
+                    "edit"
+                    )
                 );
-            projectContainer.appendChild(
-                createNewElement("button", `delete-${project.getName()}`, "delete")
+            projectContainer
+            .appendChild(
+                createNewElement(
+                    "button", 
+                    `delete-${project.getName()}`, 
+                    "delete"
+                    )
                 );
     
             projectsContainer.appendChild(projectContainer); 
     
             // event listeners for each task
     
-            const deleteButton = document.querySelector(`#delete-${project.getName()}`);
+            const deleteButton = document.querySelector(
+                `#delete-${project.getName()}`
+                );
             deleteButton.addEventListener("click", () => {
                 deleteProject(project.getId());
                 document.querySelector(`.${project.getId()}`).remove();
             });
             
-            const editButton = document.querySelector(`#edit-${project.getName()}`);
+            const editButton = document.querySelector(
+                `#edit-${project.getName()}`
+                );
             editButton.addEventListener("click", () => {
                 editForm.style.display = "block";
                 id = project.getId();
@@ -124,8 +161,14 @@ const displayProjects = (projects, category) => {
  * @param {createProject} project 
  */
 const changeUpdatedProjectDisplay = (project) => {
-    document.querySelector(`.${project.getId()} :nth-child(3)`).textContent = project.getDueDate();
-    document.querySelector(`.${project.getId()} :nth-child(4)`).textContent = format(project.getDueDate(), "yyyy-MM-dd");
+    document
+    .querySelector(
+        `.${project.getId()} :nth-child(3)`
+        ).textContent = project.getDueDate();
+    document
+    .querySelector(
+        `.${project.getId()} :nth-child(4)`
+        ).textContent = format(project.getDueDate(), "yyyy-MM-dd");
 }
 
 /**
@@ -133,7 +176,9 @@ const changeUpdatedProjectDisplay = (project) => {
  * @param {Array} projects 
  */
 const displayNumberOfProjects = (projects) => {
-    document.querySelector("#content-header :last-child").textContent = projects.length;
+    document
+    .querySelector("#content-header :last-child")
+    .textContent = projects.length;
 }
 
 
@@ -158,4 +203,9 @@ const signoutIcon = document.querySelector("#signoutIcon");
 signoutIcon.src = "../src/components/icons/arrow-right-thin-circle-outline.svg"
 
 
-export {displayProjects, formContainer, changeUpdatedProjectDisplay, displayNumberOfProjects};
+export {
+    displayProjects, 
+    formContainer, 
+    changeUpdatedProjectDisplay, 
+    displayNumberOfProjects
+};
