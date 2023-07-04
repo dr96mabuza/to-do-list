@@ -25,8 +25,19 @@ const resetForm = () => {
  */
 const submitButton = document.querySelector('#submit');
 submitButton.addEventListener('click', () => {
-    if(projectName.value != '' && projectDiscription.value != '' && dateDue != "" && priority.value != ''){
-        saveProjects(createNewProject(projectName.value, projectDiscription.value, dateDue.value, priority.value));
+    if(
+        projectName.value != '' && 
+        projectDiscription.value != '' && 
+        dateDue != "" && 
+        priority.value != '')
+        {
+        saveProjects(
+            createNewProject(
+                projectName.value, 
+                projectDiscription.value, 
+                dateDue.value, 
+                priority.value)
+            );
         formContainer.style.display = 'none';
         resetForm()
     };
