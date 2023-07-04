@@ -80,22 +80,26 @@ const displayProjects = (projects, category) => {
             projectContainer.style.borderTop = "solid antiquewhite 0.3px";
             projectContainer.style.padding = "2px 3px";
 
+            const container = document.createElement("INPUT");
+            container.setAttribute("type", "checkbox");
+            container.setAttribute("id", `checkbox-${project.getId()}`);
+            projectContainer.appendChild(container);
             projectContainer
             .appendChild(
                 createNewElement(
                     "div", 
                     "project-name", 
                     project.getName()
-                    )
-                );
+                )
+            );
             projectContainer
             .appendChild(
                 createNewElement(
                     "div", 
                     "project-discription", 
                     project.getDiscription()
-                    )
-                );
+                )
+            );
             projectContainer
             .appendChild(
                 createNewElement(
@@ -104,33 +108,33 @@ const displayProjects = (projects, category) => {
                     format(
                         project.getDueDate(), 
                         "yyyy-MM-dd"
-                        )
                     )
-                );
+                )
+            );
             projectContainer
             .appendChild(
                 createNewElement(
                     "div", 
                     "project-priority", 
                     project.getPriority()
-                    )
-                );
+                )
+            );
             projectContainer
             .appendChild(
                 createNewElement(
                     "button", 
                     `edit-${project.getName()}`, 
                     "edit"
-                    )
-                );
+                )
+            );
             projectContainer
             .appendChild(
                 createNewElement(
                     "button", 
                     `delete-${project.getName()}`, 
                     "delete"
-                    )
-                );
+                )
+            );
     
             projectsContainer.appendChild(projectContainer); 
     
