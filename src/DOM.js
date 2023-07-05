@@ -61,7 +61,7 @@ const createCheckboxElement = (id) => {
     container.setAttribute("type", "checkbox");
     container.setAttribute("id", `checkbox-${id}`);
     return container;
-}
+};
 
 /**
  * select/get new priority button.
@@ -76,6 +76,42 @@ submitPriorityButton.addEventListener("click", () => {
     document.querySelector("#new-priority").value = "";
     editForm.style.display = "none";
 });
+
+/**
+ * render individual project on its own.
+ * @param {createProject} project 
+ */
+const displaySingleProject = (project) => {
+    const name = document.querySelector("#individual-project :nth-child(2) :nth-child(2)");
+    name.textContent = project.getName();
+
+    const discription = document.querySelector("#individual-project :nth-child(3) :nth-child(2)");
+    discription.textContent = project.getDiscription();
+
+    const dueDate = document.querySelector("#individual-project :nth-child(4) :nth-child(2)");
+    dueDate.textContent = project.getDueDate();
+
+    const priority = document.querySelector("#individual-project :nth-child(4) :nth-child(2)");
+    priority.textContent = project.getPriority();
+
+    // event listeners for each task
+
+    const deleteButton = document.querySelector(
+        "#individual-project :nth-child(6) :nth-child(1)"
+        );
+    deleteButton.addEventListener("click", () => {
+        deleteProject(project.getId());
+        // document.querySelector(`.${project.getId()}`).remove();
+    });
+    
+    const editButton = document.querySelector(
+        "#individual-project :nth-child(6) :nth-child(2)"
+        );
+    editButton.addEventListener("click", () => {
+        editForm.style.display = "block";
+        id = project.getId();
+    });
+};
 
 /**
  * create project container and display based on category. ie today, tomorrow...
@@ -105,69 +141,8 @@ const displayProjects = (projects, category) => {
                     project.getName()
                 )
             );
-            projectContainer
-            .appendChild(
-                createNewElement(
-                    "div", 
-                    "project-discription", 
-                    project.getDiscription()
-                )
-            );
-            projectContainer
-            .appendChild(
-                createNewElement(
-                    "div", 
-                    "project-dueDate", 
-                    format(
-                        project.getDueDate(), 
-                        "yyyy-MM-dd"
-                    )
-                )
-            );
-            projectContainer
-            .appendChild(
-                createNewElement(
-                    "div", 
-                    "project-priority", 
-                    project.getPriority()
-                )
-            );
-            projectContainer
-            .appendChild(
-                createNewElement(
-                    "button", 
-                    `edit-${project.getName()}`, 
-                    "edit"
-                )
-            );
-            projectContainer
-            .appendChild(
-                createNewElement(
-                    "button", 
-                    `delete-${project.getName()}`, 
-                    "delete"
-                )
-            );
     
             projectsContainer.appendChild(projectContainer); 
-    
-            // event listeners for each task
-    
-            const deleteButton = document.querySelector(
-                `#delete-${project.getName()}`
-                );
-            deleteButton.addEventListener("click", () => {
-                deleteProject(project.getId());
-                document.querySelector(`.${project.getId()}`).remove();
-            });
-            
-            const editButton = document.querySelector(
-                `#edit-${project.getName()}`
-                );
-            editButton.addEventListener("click", () => {
-                editForm.style.display = "block";
-                id = project.getId();
-            });
         };
 
     });
