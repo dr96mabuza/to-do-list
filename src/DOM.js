@@ -128,7 +128,6 @@ const displayProjects = (projects, category) => {
             projectContainer.style.borderTop = "solid antiquewhite 0.3px";
             projectContainer.style.padding = "2px 3px";
 
-
             projectContainer
             .appendChild(
                 createCheckboxElement(project.getId())
@@ -142,20 +141,26 @@ const displayProjects = (projects, category) => {
                 )
             );
 
+            const img = createNewElement(
+                "img",
+                `open-${project.getId()}`,
+                ""
+                )
+            img.setAttribute("src", "../src/components/icons/chevron-right.svg");
+            img.style.height = "20px";
+            img.style.width = "20px";
             projectContainer
             .appendChild(
-                createNewElement(
-                    "button",
-                    `open-${project.getId()}`,
-                    "open"
-                )
+                (img)
             );
     
             projectsContainer.appendChild(projectContainer); 
 
             const openProjectButton = document.querySelector(`#open-${project.getId()}`);
             openProjectButton.addEventListener("click", () => {
+                img.style.backgroundColor = "orange";
                 displaySingleProject(project);
+                setTimeout(function() {img.style.backgroundColor = "white";},1000);
             });
         };
     });
