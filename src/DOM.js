@@ -125,7 +125,7 @@ const displayProjects = (projects, category) => {
         if (document.querySelector(`.${project.getId()}`) == null) {
             const projectContainer = document.createElement("div");
             projectContainer.setAttribute("class", `${project.getId()}`)
-            projectContainer.style.borderTop = "solid antiquewhite 0.3px";
+            projectContainer.style.borderTop = "solid #ECECEC 0.3px";
             projectContainer.style.padding = "2px 3px";
 
             projectContainer
@@ -160,7 +160,7 @@ const displayProjects = (projects, category) => {
                 `#open-${project.getId()}`
                 );
             openProjectButton.addEventListener("click", () => {
-                img.style.backgroundColor = "orange";
+                img.style.backgroundColor = "#ECECEC";
                 displaySingleProject(project);
                 document.querySelector("#individual-project-model").style.display = "flex";
                 setTimeout(

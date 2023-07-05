@@ -48,7 +48,7 @@ form>button {
 }
 
 form>button:hover {
-    background-color: antiquewhite;
+    background-color: #ECECEC;
 }
 
 #AddNewTask-modal, #EditPriority-modal, #EditDueDate-modal, #individual-project-model {
@@ -80,7 +80,7 @@ textarea {
 }
 
 input, textarea {
-    border: solid antiquewhite 1px;
+    border: solid #ECECEC 1px;
     border-radius: 5px;
 }
 
@@ -109,7 +109,7 @@ input, textarea {
     flex-direction: column;
     justify-content: space-between;
     min-width: 200px;
-    background-color:antiquewhite;
+    background-color:#ECECEC;
     padding: 10px;
     border-radius: 10px;
     /* height: 100%; */
@@ -151,7 +151,7 @@ input, textarea {
 }
 
 #content-container {
-    border: solid antiquewhite 0.5px;
+    border: solid #ECECEC 0.5px;
     padding: 10px;
     border-radius: 10px;
     justify-content: space-evenly;
@@ -177,7 +177,7 @@ input, textarea {
     /* width: 99.25%; */
     min-width: 360px;
     height: 365px;
-    border: solid antiquewhite 0.5px;
+    border: solid #ECECEC 0.5px;
     border-radius: 7px;
     padding: 5px;
     overflow: scroll;
@@ -187,7 +187,7 @@ input, textarea {
     width: 48.9%;
     min-width: 360px;
     height: 365px;
-    border: solid antiquewhite 0.5px;
+    border: solid #ECECEC 0.5px;
     border-radius: 7px;
     padding: 5px;
     overflow: hidden;
@@ -215,5 +215,5 @@ button {
 }
 
 #addTask:hover {
-    background-color: antiquewhite;
+    background-color: #ECECEC;
 }
