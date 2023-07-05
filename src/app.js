@@ -5,6 +5,7 @@ import {
     displayNumberOfProjects 
 } from "../src/DOM";
 import {createProject} from "./components/objects/createProject";
+import { uniqid } from "uniqid";
 
 localStorage.clear();
 const placeholderProjects = () => {
@@ -116,12 +117,13 @@ const placeholderProjects = () => {
 
     return results;
 }
-let projects = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : placeholderProjects();
+let projects = localStorage
+.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : placeholderProjects();
 
 /**
  * takes in {category} string to get {array} of projects by specific dates 
- * @param {string} category 
- * @returns {Array}
+ * @param { String } category 
+ * @returns { Array }
  */
 const getProjectsByCategory = (category) => {
     const result = projects.filter((project) => {
@@ -143,10 +145,11 @@ const getProjectsByCategory = (category) => {
  */
 const displayByCategory = () => {
     const categoryList = ["today", "tomorrow", "week"];
-    categoryList.forEach(
-        (category) => { 
+    categoryList
+    .forEach((category) => { 
             displayProjects(getProjectsByCategory(category), category); 
-        });
+        }
+    );
 };
 
 displayNumberOfProjects(projects);
@@ -161,11 +164,11 @@ const saveOnLocalStorage = () => {
 
 /**
  * create new project.
- * @param {string} name 
- * @param {string} discription 
- * @param {string} dueDate 
- * @param {string} priority 
- * @returns 
+ * @param { String } name 
+ * @param { String } discription 
+ * @param { String } dueDate 
+ * @param { String } priority 
+ * @returns { createProject }
  */
 const createNewProject = (name, discription, dueDate, priority) => {
     return new createProject(name, discription, dueDate, priority);
@@ -173,7 +176,7 @@ const createNewProject = (name, discription, dueDate, priority) => {
 
 /**
  * add new project to array list and then save on local storage and then refresh display.
- * @param {createProject} project 
+ * @param { createProject } project 
  */
 const saveProjects = (project) => {
     projects.push(project);
@@ -184,8 +187,8 @@ const saveProjects = (project) => {
 
 /**
  * filter through all the project to get the exact project.
- * @param {uniqid} id 
- * @returns {createProject} project
+ * @param { uniqid } id 
+ * @returns { createProject } project
  */
 const getProjectById = (id) => {
     return (projects.filter((project) => {
@@ -198,8 +201,8 @@ const getProjectById = (id) => {
 /**
  * get the project from all projects and edit priority.
  * render new data on webpage.
- * @param {string} newPriority 
- * @param {uniqid} id 
+ * @param { String } newPriority 
+ * @param { uniqid } id 
  */
 const changePriority = (newPriority, id) => {
     const project = getProjectById(id);
@@ -213,7 +216,7 @@ const changePriority = (newPriority, id) => {
 
 /**
  * remove the project from the list
- * @param {uniqid} id 
+ * @param { uniqid } id 
  */
 const deleteProject = (id) => {
     projects = projects.filter((project) => {
@@ -226,8 +229,8 @@ const deleteProject = (id) => {
 
 /**
  * change project new date to a new later date.
- * @param {string} date 
- * @param {uniqid} id 
+ * @param { String } date 
+ * @param { uniqid } id 
  */
 const changeDueDate = (date, id) => {
     const index = projects.indexOf(project);

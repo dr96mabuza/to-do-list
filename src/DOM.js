@@ -1,5 +1,6 @@
 import { changePriority, deleteProject, changeDueDate } from "./app";
 import { format } from "date-fns";
+import { uniqid } from "uniqid";
 import { createProject } from "./components/objects/createProject";
 
 let id = null;
@@ -23,6 +24,7 @@ form.addEventListener('submit', function (event) {
 const addTaskButtons = document.querySelectorAll("#addTask");
 addTaskButtons.forEach((button)=>{
     button.addEventListener("click", () => {
+        // display add task form
         formContainer.style.display = "flex";
     });
 });
@@ -38,10 +40,10 @@ editForm.addEventListener('submit', function (event) {
 /**
  * create new html element. adding id and text attribute.
  * to render project data.
- * @param {string} type 
- * @param {string} id 
- * @param {string} textContent 
- * @returns html element
+ * @param { String } type 
+ * @param { String } id 
+ * @param { String } textContent 
+ * @returns { HTMLElement }
  */
 const createNewElement = (type, id, textContent) => {
     const container = document.createElement(type);
@@ -53,8 +55,8 @@ const createNewElement = (type, id, textContent) => {
 
 /**
  * create unique checkbox for each project.
- * @param {uniqid} id 
- * @returns html element
+ * @param { uniqid } id 
+ * @returns { HTMLElement }
  */
 const createCheckboxElement = (id) => {
     const container = document.createElement("INPUT");
@@ -79,36 +81,51 @@ submitPriorityButton.addEventListener("click", () => {
 
 /**
  * render individual project on its own.
- * @param {createProject} project 
+ * @param { createProject } project 
  */
 const displaySingleProject = (project) => {
-    const name = document.querySelector("#individual-project :nth-child(2) :nth-child(2)");
+    const name = document
+    .querySelector("#individual-project :nth-child(2) :nth-child(2)");
     name.textContent = project.getName();
 
-    const discription = document.querySelector("#individual-project :nth-child(3) :nth-child(2)");
+    const discription = document
+    .querySelector("#individual-project :nth-child(3) :nth-child(2)");
     discription.textContent = project.getDiscription();
 
-    const dueDate = document.querySelector("#individual-project :nth-child(4) :nth-child(2)");
+    const dueDate = document
+    .querySelector("#individual-project :nth-child(4) :nth-child(2)");
     dueDate.textContent = format(project.getDueDate(), "PPP");
 
-    const priority = document.querySelector("#individual-project :nth-child(5) :nth-child(2)");
+    const priority = document
+    .querySelector("#individual-project :nth-child(5) :nth-child(2)");
     priority.textContent = project.getPriority();
 
     // event listeners for each task
 
-    const deleteButton = document.querySelector(
-        "#individual-project :nth-child(6) :nth-child(2)"
-        );
+    // add event to delete button.
+    const deleteButton = document
+    .querySelector("#individual-project :nth-child(6) :nth-child(2)");
     deleteButton.addEventListener("click", () => {
+        // remove project from list.
         deleteProject(project.getId());
-        document.querySelector(`.${project.getId()}`).remove();
-        document.querySelector("#individual-project-model").style.display = "none";
+
+        // remove project from display,
+        document
+        .querySelector(`.${project.getId()}`)
+        .remove();
+        
+        // close display.
+        document
+        .querySelector("#individual-project-model")
+        .style
+        .display = "none";
     });
     
     const editButton = document.querySelector(
         "#individual-project :nth-child(6) :nth-child(1)"
         );
     editButton.addEventListener("click", () => {
+        // display edit form.
         editForm.style.display = "flex";
         id = project.getId();
     });
@@ -116,8 +133,8 @@ const displaySingleProject = (project) => {
 
 /**
  * create project container and display based on category. ie today, tomorrow...
- * @param {Array} projects 
- * @param {string} category 
+ * @param { Array } projects 
+ * @param { String } category 
  */
 const displayProjects = (projects, category) => {
     const projectsContainer = document.querySelector(`#${category}-projects`);
@@ -146,24 +163,24 @@ const displayProjects = (projects, category) => {
                 "img",
                 `open-${project.getId()}`,
                 ""
-                )
+            );
+            // add arrow icon
             img.setAttribute("src", "../src/components/icons/chevron-right.svg");
             img.style.height = "20px";
             img.style.width = "20px";
-            projectContainer
-            .appendChild(
-                (img)
-            );
-    
+            projectContainer.appendChild((img));
             projectsContainer.appendChild(projectContainer); 
 
-            const openProjectButton = document.querySelector(
-                `#open-${project.getId()}`
-                );
+            // open and display complete project data on click.
+            const openProjectButton = document
+            .querySelector(`#open-${project.getId()}`);
             openProjectButton.addEventListener("click", () => {
                 img.style.backgroundColor = "#ECECEC";
                 displaySingleProject(project);
-                document.querySelector("#individual-project-model").style.display = "flex";
+                document
+                .querySelector("#individual-project-model")
+                .style
+                .display = "flex";
                 setTimeout(
                     function() {img.style.backgroundColor = "white";},
                     1000
@@ -175,22 +192,20 @@ const displayProjects = (projects, category) => {
 
 /**
  * render new data after change of priority.
- * @param {createProject} project 
+ * @param { createProject } project 
  */
 const changeUpdatedProjectDisplay = (project) => {
     document
-    .querySelector(
-        `.${project.getId()} :nth-child(3)`
-        ).textContent = project.getDueDate();
+    .querySelector(`.${project.getId()} :nth-child(3)`)
+    .textContent = project.getDueDate();
     document
-    .querySelector(
-        `.${project.getId()} :nth-child(4)`
-        ).textContent = format(project.getDueDate(), "yyyy-MM-dd");
+    .querySelector(`.${project.getId()} :nth-child(4)`)
+    .textContent = format(project.getDueDate(), "yyyy-MM-dd");
 }
 
 /**
  * display the number of current projects.
- * @param {Array} projects 
+ * @param { Array } projects 
  */
 const displayNumberOfProjects = (projects) => {
     document
