@@ -23,7 +23,7 @@ form.addEventListener('submit', function (event) {
 const addTaskButtons = document.querySelectorAll("#addTask");
 addTaskButtons.forEach((button)=>{
     button.addEventListener("click", () => {
-        formContainer.style.display = "block";
+        formContainer.style.display = "flex";
     });
 });
 
