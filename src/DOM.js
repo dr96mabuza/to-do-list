@@ -156,11 +156,17 @@ const displayProjects = (projects, category) => {
     
             projectsContainer.appendChild(projectContainer); 
 
-            const openProjectButton = document.querySelector(`#open-${project.getId()}`);
+            const openProjectButton = document.querySelector(
+                `#open-${project.getId()}`
+                );
             openProjectButton.addEventListener("click", () => {
                 img.style.backgroundColor = "orange";
                 displaySingleProject(project);
-                setTimeout(function() {img.style.backgroundColor = "white";},1000);
+                document.querySelector("#individual-project-model").style.display = "flex";
+                setTimeout(
+                    function() {img.style.backgroundColor = "white";},
+                    1000
+                );
             });
         };
     });

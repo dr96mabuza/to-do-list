@@ -51,7 +51,7 @@ form>button:hover {
     background-color: antiquewhite;
 }
 
-#AddNewTask-modal, #EditPriority-modal, #EditDueDate-modal {
+#AddNewTask-modal, #EditPriority-modal, #EditDueDate-modal, #individual-project-model {
     display: none;
     position:fixed;
     z-index: 1;
@@ -90,11 +90,11 @@ input, textarea {
     color: #aaa;
 }
 
-.close :hover {
-    /* color: black;
+/* .close :hover {
+    color: black;
     text-decoration: none;
-    cursor: ; */
-}
+    cursor: ;
+} */
 
 /* main container */
 #main {
@@ -197,6 +197,10 @@ input, textarea {
     
     height: 100%;
     padding: 5px 10px;
+}
+
+#individual-project {
+    background-color: white;
 }
 
 /* buttons */
