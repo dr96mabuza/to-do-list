@@ -73,7 +73,8 @@ const submitPriorityButton = document.querySelector("#submitNewPriority");
  * add event listner on submit new priority button.
  * submit new priority and hide form display.
  */
-submitPriorityButton.addEventListener("click", () => {
+submitPriorityButton
+.addEventListener("click", () => {
     changePriority(document.querySelector("#new-priority").value, id);
     document.querySelector("#new-priority").value = "";
     editForm.style.display = "none";
@@ -84,28 +85,32 @@ submitPriorityButton.addEventListener("click", () => {
  * @param { createProject } project 
  */
 const displaySingleProject = (project) => {
-    const name = document
-    .querySelector("#individual-project :nth-child(2) :nth-child(2)");
-    name.textContent = project.getName();
+    // display project name.
+    document
+    .querySelector("#individual-project :nth-child(2) :nth-child(2)")
+    .textContent = project.getName();
 
-    const discription = document
-    .querySelector("#individual-project :nth-child(3) :nth-child(2)");
-    discription.textContent = project.getDiscription();
+    // display project discription.
+    document
+    .querySelector("#individual-project :nth-child(3) :nth-child(2)")
+    .textContent = project.getDiscription();
 
-    const dueDate = document
-    .querySelector("#individual-project :nth-child(4) :nth-child(2)");
-    dueDate.textContent = format(project.getDueDate(), "PPP");
+    // display project due date.
+    document
+    .querySelector("#individual-project :nth-child(4) :nth-child(2)")
+    .textContent = format(project.getDueDate(), "PPP");
 
-    const priority = document
-    .querySelector("#individual-project :nth-child(5) :nth-child(2)");
-    priority.textContent = project.getPriority();
+    // display project priority.
+    document
+    .querySelector("#individual-project :nth-child(5) :nth-child(2)")
+    .textContent = project.getPriority();
 
     // event listeners for each task
 
     // add event to delete button.
-    const deleteButton = document
-    .querySelector("#individual-project :nth-child(6) :nth-child(2)");
-    deleteButton.addEventListener("click", () => {
+    document
+    .querySelector("#individual-project :nth-child(6) :nth-child(2)")
+    .addEventListener("click", () => {
         // remove project from list.
         deleteProject(project.getId());
 
@@ -121,12 +126,14 @@ const displaySingleProject = (project) => {
         .display = "none";
     });
     
-    const editButton = document.querySelector(
-        "#individual-project :nth-child(6) :nth-child(1)"
-        );
-    editButton.addEventListener("click", () => {
+    // edit project
+    document
+    .querySelector("#individual-project :nth-child(6) :nth-child(1)")
+    .addEventListener("click", () => {
         // display edit form.
-        editForm.style.display = "flex";
+        editForm
+        .style
+        .display = "flex";
         id = project.getId();
     });
 };
@@ -147,34 +154,24 @@ const displayProjects = (projects, category) => {
             projectContainer.style.padding = "2px 3px";
 
             projectContainer
-            .appendChild(
-                createCheckboxElement(project.getId())
-            );
+            .appendChild(createCheckboxElement(project.getId()));
             projectContainer
             .appendChild(
-                createNewElement(
-                    "div", 
-                    "project-name", 
-                    project.getName()
-                )
+                createNewElement("div", "project-name", project.getName())
             );
 
-            const img = createNewElement(
-                "img",
-                `open-${project.getId()}`,
-                ""
-            );
             // add arrow icon
+            const img = createNewElement("img",`open-${project.getId()}`,"");
             img.setAttribute("src", "../src/components/icons/chevron-right.svg");
             img.style.height = "20px";
             img.style.width = "20px";
-            projectContainer.appendChild((img));
+            projectContainer.appendChild(img);
             projectsContainer.appendChild(projectContainer); 
 
             // open and display complete project data on click.
-            const openProjectButton = document
-            .querySelector(`#open-${project.getId()}`);
-            openProjectButton.addEventListener("click", () => {
+            document
+            .querySelector(`#open-${project.getId()}`)
+            .addEventListener("click", () => {
                 img.style.backgroundColor = "#ECECEC";
                 displaySingleProject(project);
                 document

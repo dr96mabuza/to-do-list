@@ -1,14 +1,14 @@
 import { parse } from "date-fns";
-import uniqid from "uniqid";
+import { uniqid } from "uniqid";
 
 class createProject {
 
     /**
      * create new project object.
-     * @param {string} name 
-     * @param {string} discription 
-     * @param {string} dueDate 
-     * @param {string} priority 
+     * @param { String } name 
+     * @param { String } discription 
+     * @param { String } dueDate 
+     * @param { String } priority 
      */
     constructor (name, discription, dueDate, priority) {
         this._name = name;
@@ -24,25 +24,25 @@ class createProject {
 
     /**
      * returns project name.
-     * @returns {string}
+     * @returns { String }
      */
     getName() {return this._name;};
 
     /**
      * retuns the project discription.
-     * @returns {string}
+     * @returns { String }
      */
     getDiscription() {return this._discription;};
 
     /**
      * returns the current project due date.
-     * @returns {Date}
+     * @returns { Date }
      */
     getDueDate() { return this._dueDate; };
     
     /**
      * get project due date as a string and convert to {Date}.
-     * @param {string} newDueDate 
+     * @param { String } newDueDate 
      */
     setDueDate(newDueDate) {
         this._dueDate = parse(newDueDate, "yyyy-MM-dd", new Date());
@@ -50,37 +50,37 @@ class createProject {
     
     /**
      * returns the current project priority.
-     * @returns {string}
+     * @returns { String }
      */
     getPriority() { return this._priority; };
     
     /**
      * change the priority of the project.
-     * @param {string} priority 
+     * @param { String } priority 
      */
     setPriority(priority) {this._priority = priority;};
     
     /**
      * return project id.
-     * @returns {uniqid} 
+     * @returns { uniqid } 
      */
     getId() {return this._id; };
     
     /**
      * set new date when ever the project gets updated.
-     * @param {Date} dateUpdated 
+     * @param { Date } dateUpdated 
      */
     setDateUpdated(dateUpdated) {this._dateUpdated = dateUpdated; };
     
     /**
      * get the state of the project if completed or not.
-     * @returns {boolean} 
+     * @returns { Boolean } 
      */
     getCompleted() {return this._completed;};
     
     /**
      * set project completed, true if completed. false if not.
-     * @param {boolean} completed 
+     * @param { Boolean } completed 
      */
     setCompleted(completed) {this._completed = completed;};
 }
