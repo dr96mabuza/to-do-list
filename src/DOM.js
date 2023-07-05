@@ -89,26 +89,27 @@ const displaySingleProject = (project) => {
     discription.textContent = project.getDiscription();
 
     const dueDate = document.querySelector("#individual-project :nth-child(4) :nth-child(2)");
-    dueDate.textContent = project.getDueDate();
+    dueDate.textContent = format(project.getDueDate(), "PPP");
 
-    const priority = document.querySelector("#individual-project :nth-child(4) :nth-child(2)");
+    const priority = document.querySelector("#individual-project :nth-child(5) :nth-child(2)");
     priority.textContent = project.getPriority();
 
     // event listeners for each task
 
     const deleteButton = document.querySelector(
-        "#individual-project :nth-child(6) :nth-child(1)"
+        "#individual-project :nth-child(6) :nth-child(2)"
         );
     deleteButton.addEventListener("click", () => {
         deleteProject(project.getId());
-        // document.querySelector(`.${project.getId()}`).remove();
+        document.querySelector(`.${project.getId()}`).remove();
+        document.querySelector("#individual-project-model").style.display = "none";
     });
     
     const editButton = document.querySelector(
-        "#individual-project :nth-child(6) :nth-child(2)"
+        "#individual-project :nth-child(6) :nth-child(1)"
         );
     editButton.addEventListener("click", () => {
-        editForm.style.display = "block";
+        editForm.style.display = "flex";
         id = project.getId();
     });
 };
