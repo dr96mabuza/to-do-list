@@ -141,10 +141,23 @@ const displayProjects = (projects, category) => {
                     project.getName()
                 )
             );
+
+            projectContainer
+            .appendChild(
+                createNewElement(
+                    "button",
+                    `open-${project.getId()}`,
+                    "open"
+                )
+            );
     
             projectsContainer.appendChild(projectContainer); 
-        };
 
+            const openProjectButton = document.querySelector(`#open-${project.getId()}`);
+            openProjectButton.addEventListener("click", () => {
+                displaySingleProject(project);
+            });
+        };
     });
 };
 
