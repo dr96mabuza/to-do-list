@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-size: 16px;
 }
 
 body {
@@ -10,6 +11,14 @@ body {
     flex-direction: column;
     width: 100%
     
+}
+
+p {
+    font-size: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
 }
 
 /* shared */
@@ -162,20 +171,12 @@ input, textarea {
     flex-wrap: wrap;
     width: 100%;
     margin-top: 15px;
+    justify-content: space-evenly;
+    justify-items: center;
     gap: 10px;
 }
 
-/* #today, #tomorrow, #week {
-    padding: 10px;
-} */
-
-/* .today-header, .tomorrow-header, .week-header {
-    padding: 0%;
-} */
-
 #today {
-    /* width: 99.25%; */
-    min-width: 360px;
     height: 365px;
     border: solid #ECECEC 0.5px;
     border-radius: 7px;
@@ -184,12 +185,11 @@ input, textarea {
 }
 
 #tomorrow, #week {
-    width: 48.9%;
-    min-width: 360px;
     height: 365px;
     border: solid #ECECEC 0.5px;
     border-radius: 7px;
     padding: 5px;
+    width: 48.72%;
     overflow: hidden;
 }
 

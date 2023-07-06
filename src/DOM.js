@@ -1,6 +1,6 @@
 import { changePriority, deleteProject, changeDueDate } from "./app";
 import { format } from "date-fns";
-import { uniqid } from "uniqid";
+import uniqid from "uniqid";
 import { createProject } from "./components/objects/createProject";
 
 let id = null;
@@ -152,13 +152,25 @@ const displayProjects = (projects, category) => {
             projectContainer.setAttribute("class", `${project.getId()}`)
             projectContainer.style.borderTop = "solid #ECECEC 0.3px";
             projectContainer.style.padding = "2px 3px";
+            projectContainer.style.display = "flex";
+            projectContainer.style.flexDirection = "row";
+            projectContainer.style.justifyContent = "space-between";
+            projectContainer.style.alignContent = "center";
 
-            projectContainer
-            .appendChild(createCheckboxElement(project.getId()));
-            projectContainer
+            const nameDisplay = document.createElement("div");
+            nameDisplay.style.display = "flex";
+            nameDisplay.style.flexDirection = "row";
+            nameDisplay.style.justifyContent = "flex-start";
+            nameDisplay.style.alignContent = "center";
+            nameDisplay.style.padding = "2px 3px";
+            nameDisplay.style.gap = "4px";
+            nameDisplay.appendChild(createCheckboxElement(project.getId()));
+            nameDisplay
             .appendChild(
                 createNewElement("div", "project-name", project.getName())
             );
+            projectContainer
+            .appendChild(nameDisplay);
 
             // add arrow icon
             const img = createNewElement("img",`open-${project.getId()}`,"");

@@ -1,5 +1,5 @@
 import { parse } from "date-fns";
-import { uniqid } from "uniqid";
+import uniqid from "uniqid";
 
 class createProject {
 

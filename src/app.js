@@ -5,7 +5,7 @@ import {
     displayNumberOfProjects 
 } from "../src/DOM";
 import {createProject} from "./components/objects/createProject";
-import { uniqid } from "uniqid";
+import uniqid from "uniqid";
 
 localStorage.clear();
 const placeholderProjects = () => {
