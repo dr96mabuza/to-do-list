@@ -81,6 +81,13 @@ submitPriorityButton
 });
 
 /**
+ * checks if project is complete or not and display result.
+ * @param { Boolean } complete 
+ * @returns { String }
+ */
+const projectCompleted = (complete) => { if (complete == true) {return "complete";} else {return "incomplete";}}
+
+/**
  * render individual project on its own.
  * @param { createProject } project 
  */
@@ -105,11 +112,16 @@ const displaySingleProject = (project) => {
     .querySelector("#individual-project :nth-child(5) :nth-child(2)")
     .textContent = project.getPriority();
 
+    // display if project is complete.
+    document
+    .querySelector("#individual-project :nth-child(6) :nth-child(2)")
+    .textContent = projectCompleted(project.getCompleted());
+
     // event listeners for each task
 
     // add event to delete button.
     document
-    .querySelector("#individual-project :nth-child(6) :nth-child(2)")
+    .querySelector("#individual-project :nth-child(7) :nth-child(2)")
     .addEventListener("click", () => {
         // remove project from list.
         deleteProject(project.getId());
@@ -128,7 +140,7 @@ const displaySingleProject = (project) => {
     
     // edit project
     document
-    .querySelector("#individual-project :nth-child(6) :nth-child(1)")
+    .querySelector("#individual-project :nth-child(7) :nth-child(1)")
     .addEventListener("click", () => {
         // display edit form.
         editForm
