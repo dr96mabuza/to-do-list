@@ -6,13 +6,6 @@
     font-size: 16px;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    width: 100%
-    
-}
-
 p {
     font-size: 1rem;
 }
@@ -30,26 +23,71 @@ h2 {
 #content,
 #sidebar,
 .laterTasks,
-#content-header {
+#content-header,
+form,
+form>div,
+#tasks > div,
+#sidebar-footer > div,
+#searchbar-container,
+#sidebar-header,
+#sidebar-header :first-child,
+#sidebar-header :last-child,
+button,
+body,
+#tags,
+#tags :nth-child(2) {
     display: flex;
 }
 
+#AddTaskForm, 
+#EditPriorityForm, 
+#EditDueDateForm {
+    width: 400px;
+}
+
+form>div, 
+form, 
+#sidebar,
+#sidebar-header, 
+#content,
+body,
+#tags {
+    flex-direction: column;
+}
+
+#main,
+#tasks > div,
+#sidebar-footer > div,
+#searchbar-container,
+#sidebar-header :first-child,
+#sidebar-header :last-child,
+#content-header,
+.laterTasks,
+#tags :nth-child(2) {
+    flex-direction: row;
+}
+
+form, 
+#sidebar-header :first-child, 
+.laterTasks {
+    justify-items: center;
+}
+
+#content, .laterTasks, button {
+    width: 100%;
+}
+
+#sidebar, #sidebar-header :first-child {
+    justify-content: space-between;
+}
 /* forms */
 
 form {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    justify-items: center;
     background-color: white;
     padding: 10px 15px;
     gap: 5px;
     border-radius: 5px;
-}
-
-form>div{
-    display: flex;
-    flex-direction: column;
 }
 
 form>button {
@@ -60,27 +98,26 @@ form>button:hover {
     background-color: #ECECEC;
 }
 
-#AddNewTask-modal, #EditPriority-modal, #EditDueDate-modal, #individual-project-model {
+#AddNewTask-modal, 
+#EditPriority-modal, 
+#EditDueDate-modal, 
+#individual-project-model {
     display: none;
-    position:fixed;
+    position: fixed;
     z-index: 1;
     left: 0;
     right: 0;
-    width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
 }
 
 #AddTaskForm {
-    width: 400px;
     height: 400px;
     display: block;
     margin: auto;
-
 }
 
 #EditPriorityForm, #EditDueDateForm {
-    width: 400px;
     height: 150px;
 }
 
@@ -107,7 +144,6 @@ input, textarea {
 
 /* main container */
 #main {
-    flex-direction: row;
     gap: 15px;
     padding: 15px;
     height: 96%;
@@ -115,20 +151,15 @@ input, textarea {
 
 /* sidebar */
 #sidebar {
-    flex-direction: column;
-    justify-content: space-between;
-    min-width: 200px;
+    min-width: 250px;
     background-color:#ECECEC;
     padding: 10px;
     border-radius: 10px;
-    /* height: 100%; */
 }
 
 #tasks > div,
 #sidebar-footer > div,
 #searchbar-container {
-    display: flex;
-    flex-direction: row;
     justify-content: flex-start;
     align-content: center;
     gap: 5px;
@@ -141,44 +172,82 @@ input, textarea {
 #calendarIcon, 
 #todayIcon, 
 #upcomingIcon,
-#searchIcon {
+#searchIcon,
+#menuIcon {
     width: 20px;
     height: 20px;
 }
 
+#sidebar-header {
+    gap: 10px;
+}
+
+#sidebar-header :last-child {
+    align-items: center;
+}
+
+#sidebar-header :last-child :last-child {
+    width: 90%;
+    padding: 2px;
+}
+
+#tags :nth-child(2) {
+    justify-content: space-between;
+    gap: 5px;
+}
+
+#tags :nth-child(2) > button {
+    display: flex;
+    flex-direction: row;
+    border: solid black 0.5px;
+    border-radius: 5px;
+    justify-content: center;
+    justify-items: center;
+}
+
+#tags > div :nth-child(1) {
+    background-color: pink;
+}
+
+#tags > div :nth-child(2) {
+    background-color: skyblue;
+}
+
 /* content container */
+#content-container, 
+#today, 
+#tomorrow, 
+#week {
+    border: solid #ECECEC 0.5px;
+}
+
+#content-container, 
+.laterTasks {
+    justify-content: space-evenly;
+}
+
+
 #content {
-    flex-direction: column;
-    width: 100%;
     gap: 30px;
 }
 
 #content-header {
-    flex-direction: row;
     gap: 15px;
 
 }
 
 #content-container {
-    border: solid #ECECEC 0.5px;
     padding: 10px;
     border-radius: 10px;
-    justify-content: space-evenly;
 }
 
 .laterTasks {
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
     margin-top: 15px;
-    justify-content: space-evenly;
-    justify-items: center;
     gap: 10px;
 }
 
 #today {
     height: 365px;
-    border: solid #ECECEC 0.5px;
     border-radius: 7px;
     padding: 5px;
     overflow: scroll;
@@ -186,7 +255,6 @@ input, textarea {
 
 #tomorrow, #week {
     height: 365px;
-    border: solid #ECECEC 0.5px;
     border-radius: 7px;
     padding: 5px;
     width: 48.72%;
@@ -206,14 +274,34 @@ input, textarea {
 /* buttons */
 
 button {
-    display: flex;
     background-color: white;
     border: 0;
-    width: 100%;
     justify-content: flex-start;
     justify-items: flex-start;
 }
 
 #addTask:hover {
     background-color: #ECECEC;
+}
+
+
+
+/* new new */
+#lists :last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#lists :last-child > div :first-child {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    border-radius: 5px;
+}
+
+#lists :last-child > div {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 }

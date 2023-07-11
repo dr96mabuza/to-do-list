@@ -151,6 +151,32 @@ const displaySingleProject = (project) => {
 };
 
 /**
+ * add css style for each project container.
+ * @param {HTMLDivElement} projectContainer 
+ */
+const styleProjectContainer = (projectContainer) => {
+    projectContainer.style.borderTop = "solid #ECECEC 0.3px";
+    projectContainer.style.padding = "2px 3px";
+    projectContainer.style.display = "flex";
+    projectContainer.style.flexDirection = "row";
+    projectContainer.style.justifyContent = "space-between";
+    projectContainer.style.alignContent = "center";
+};
+
+/**
+ * add css style for each name project container.
+ * @param { HTMLDivElement } nameDisplay 
+ */
+const styleNameDisplay = (nameDisplay) => {
+    nameDisplay.style.display = "flex";
+    nameDisplay.style.flexDirection = "row";
+    nameDisplay.style.justifyContent = "flex-start";
+    nameDisplay.style.alignContent = "center";
+    nameDisplay.style.padding = "2px 3px";
+    nameDisplay.style.gap = "4px";
+};
+
+/**
  * create project container and display based on category. ie today, tomorrow...
  * @param { Array } projects 
  * @param { String } category 
@@ -162,20 +188,10 @@ const displayProjects = (projects, category) => {
         if (document.querySelector(`.${project.getId()}`) == null) {
             const projectContainer = document.createElement("div");
             projectContainer.setAttribute("class", `${project.getId()}`)
-            projectContainer.style.borderTop = "solid #ECECEC 0.3px";
-            projectContainer.style.padding = "2px 3px";
-            projectContainer.style.display = "flex";
-            projectContainer.style.flexDirection = "row";
-            projectContainer.style.justifyContent = "space-between";
-            projectContainer.style.alignContent = "center";
+            styleProjectContainer(projectContainer);
 
             const nameDisplay = document.createElement("div");
-            nameDisplay.style.display = "flex";
-            nameDisplay.style.flexDirection = "row";
-            nameDisplay.style.justifyContent = "flex-start";
-            nameDisplay.style.alignContent = "center";
-            nameDisplay.style.padding = "2px 3px";
-            nameDisplay.style.gap = "4px";
+            styleNameDisplay(nameDisplay);
             nameDisplay.appendChild(createCheckboxElement(project.getId()));
             nameDisplay
             .appendChild(
@@ -234,26 +250,42 @@ const displayNumberOfProjects = (projects) => {
     .textContent = projects.length;
 }
 
+const renderIcons = () => {
+    /* ADD SIDEBAR ICONS */
+    // menu
+    document
+    .querySelector("#menuIcon")
+    .src = "../src/components/icons/menu.svg";
+    document
+    .querySelector("#searchIcon")
+    .src = "../src/components/icons/magnify.svg";
 
-/* ADD SIDEBAR ICONS */
-const searchIcon = document.querySelector("#searchIcon");
-searchIcon.src = "../src/components/icons/magnify.svg";
+    // tasks
+    document
+    .querySelector("#upcomingIcon")
+    .src = "../src/components/icons/chevron-double-right.svg";
+    document
+    .querySelector("#todayIcon")
+    .src = "../src/components/icons/format-list-bulleted.svg";
+    document
+    .querySelector("#calendarIcon")
+    .src = "../src/components/icons/calendar-month-outline.svg";
+    document
+    .querySelector("#stickywallIcon")
+    .src = "../src/components/icons/note.svg";
 
-// tasks
-const upcomingIcon = document.querySelector("#upcomingIcon");
-upcomingIcon.src = "../src/components/icons/chevron-double-right.svg";
-const todayIcon = document.querySelector("#todayIcon");
-todayIcon.src = "../src/components/icons/format-list-bulleted.svg";
-const calendarIcon = document.querySelector("#calendarIcon");
-calendarIcon.src = "../src/components/icons/calendar-month-outline.svg";
-const stickywallIcon = document.querySelector("#stickywallIcon");
-stickywallIcon.src = "../src/components/icons/note.svg";
+    // 
+    document
+    .querySelector("#settingsIcon")
+    .src = "../src/components/icons/tune.svg";
+    document
+    .querySelector("#signoutIcon")
+    .src = "../src/components/icons/arrow-right-thin-circle-outline.svg";
+};
 
-// 
-const settingsIcon = document.querySelector("#settingsIcon");
-settingsIcon.src = "../src/components/icons/tune.svg";
-const signoutIcon = document.querySelector("#signoutIcon");
-signoutIcon.src = "../src/components/icons/arrow-right-thin-circle-outline.svg"
+(function () {
+  renderIcons();  
+})();
 
 
 export {
