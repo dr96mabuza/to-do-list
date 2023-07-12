@@ -14,6 +14,12 @@ h2 {
     font-size: 2rem;
 }
 
+h5 {
+    font-size: 0.8rem;
+}
+
+
+
 /* shared */
 
 #AddNewTask-modal, 
@@ -157,13 +163,12 @@ input, textarea {
     border-radius: 10px;
 }
 
-#tasks > div,
 #sidebar-footer > div,
 #searchbar-container {
     justify-content: flex-start;
     align-content: center;
     gap: 5px;
-    height: 40px;
+    /* height: 40px; */
 }
 
 #signoutIcon, 
@@ -199,10 +204,11 @@ input, textarea {
 #tags :nth-child(2) > button {
     display: flex;
     flex-direction: row;
-    border: solid black 0.5px;
+    /* border: solid black 0.5px; */
     border-radius: 5px;
     justify-content: center;
     justify-items: center;
+    padding: 3px 0.6px;
 }
 
 #tags > div :nth-child(1) {
@@ -293,15 +299,68 @@ button {
     gap: 5px;
 }
 
+#lists :last-child > div :last-child {
+    padding-top: 2px;
+}
+
 #lists :last-child > div :first-child {
-    width: 20px;
-    height: 20px;
-    background-color: yellow;
+    width: 18px;
+    height: 18px;
     border-radius: 5px;
+}
+
+#lists :last-child :first-child :first-child {
+    background-color: red;
+}
+
+#lists :last-child :nth-child(2) :first-child {
+    background-color: skyblue;
+}
+
+#lists :last-child :last-child :first-child {
+    background-color: gold;
 }
 
 #lists :last-child > div {
     display: flex;
     flex-direction: row;
     gap: 5px;
+}
+
+#sidemenu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#searchbar-container {
+    background-color: #ECECEC;
+    border-radius: 7px;
+    padding-left: 6px;
+    border: solid black 1px;
+    margin-bottom: 5px;
+}
+
+#sidebar-header :last-child > input{
+    border: 0px;
+    background-color: #ECECEC;
+}
+
+#main :first-child {
+    padding-top: 4px;
+}
+
+h5 {
+    padding-bottom: 5px;
+}
+
+
+#tasks > div {
+    align-items: center;
+    gap: 2px;
+    height: 29px;
+}
+
+#tasks > div > div, #sidebar-footer > div :last-child {
+    padding-top: 3.5px;
 }
