@@ -238,8 +238,13 @@ input, textarea {
 }
 
 #content-header {
-    gap: 15px;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
 
+#content-header :last-child {
+    margin-top: 3px;
 }
 
 #content-container {
