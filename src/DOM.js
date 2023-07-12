@@ -156,11 +156,12 @@ const displaySingleProject = (project) => {
  */
 const styleProjectContainer = (projectContainer) => {
     projectContainer.style.borderTop = "solid #ECECEC 0.3px";
-    projectContainer.style.padding = "2px 3px";
+    projectContainer.style.padding = "0px 0px 3px 3px";
     projectContainer.style.display = "flex";
     projectContainer.style.flexDirection = "row";
     projectContainer.style.justifyContent = "space-between";
     projectContainer.style.alignContent = "center";
+    projectContainer.style.justifyItems = "center";
 };
 
 /**
@@ -173,8 +174,22 @@ const styleNameDisplay = (nameDisplay) => {
     nameDisplay.style.justifyContent = "flex-start";
     nameDisplay.style.alignContent = "center";
     nameDisplay.style.padding = "2px 3px";
-    nameDisplay.style.gap = "4px";
+    nameDisplay.style.gap = "8px";
+    // nameDisplay.style.height = "25px";
+    nameDisplay.style.paddingTop = "10px"
 };
+
+/**
+ * css style for arrow img/icon.
+ * @param { HTMLImageElement } img 
+ */
+const styleOpenFullProjectDetails = (img) => {
+    img.style.height = "20px";
+    img.style.width = "20px";
+    img.style.paddingTop = "6px";
+    img.style.paddingRight = "10px";
+    img.style.filter = "invert(77%) sepia(9%) saturate(11%) hue-rotate(335deg) brightness(90%) contrast(81%)";
+}
 
 /**
  * create project container and display based on category. ie today, tomorrow...
@@ -203,8 +218,8 @@ const displayProjects = (projects, category) => {
             // add arrow icon
             const img = createNewElement("img",`open-${project.getId()}`,"");
             img.setAttribute("src", "../src/components/icons/chevron-right.svg");
-            img.style.height = "20px";
-            img.style.width = "20px";
+            styleOpenFullProjectDetails(img)
+
             projectContainer.appendChild(img);
             projectsContainer.appendChild(projectContainer); 
 
@@ -251,6 +266,13 @@ const displayNumberOfProjects = (projects) => {
 }
 
 const renderIcons = () => {
+    /* Add tasks*/
+    const addTaskButtons = document.querySelectorAll("#addTask > img");
+    addTaskButtons.forEach((button) => {
+        button.src = "../src/components/icons/plus.svg";
+        button.style.height = "20px";
+    });
+
     /* ADD SIDEBAR ICONS */
     // menu
     document

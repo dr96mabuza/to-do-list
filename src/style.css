@@ -286,6 +286,19 @@ button {
     justify-items: flex-start;
 }
 
+#addTask {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    border: solid #ECECEC 1px;
+    border-radius: 5px;
+    padding: 5px;
+    color: #aaa;
+    font-size: small;
+}
+
 #addTask:hover {
     background-color: #ECECEC;
 }
@@ -336,8 +349,8 @@ button {
 #searchbar-container {
     background-color: #ECECEC;
     border-radius: 7px;
-    padding-left: 6px;
-    border: solid black 1px;
+    padding: 5px;
+    border: solid #aaa9a9 0.3px;
     margin-bottom: 5px;
 }
 
@@ -363,4 +376,18 @@ h5 {
 
 #tasks > div > div, #sidebar-footer > div :last-child {
     padding-top: 3.5px;
+}
+
+
+.tomorrow-header, .today-header, .week-header {
+    margin-left: 8px;
+}
+
+#addTask > img {
+    filter: invert(77%) sepia(9%) saturate(11%) hue-rotate(335deg) brightness(90%) contrast(81%);
+}
+
+#addTask :last-child {
+    padding-top: 4px;
+    font-size: 0.9rem;
 }

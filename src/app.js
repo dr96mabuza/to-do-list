@@ -10,110 +10,97 @@ import uniqid from "uniqid";
 localStorage.clear();
 const placeholderProjects = () => {
     let results = []
+    results
+    .push(
+        new createProject(
+            "Research content ideas", 
+            "test new", 
+            format(new Date(), "yyyy-MM-dd"), 
+            "high"
+        )
+    );
     results.push(
         new createProject(
-            "test1", 
+            "Create a database of guest authors", 
             "test new", 
             format(new Date(), "yyyy-MM-dd"), 
             "high"
             )
-        );
+    );
     results.push(
         new createProject(
-            "test2", 
+            "Renew driver\'s license", 
             "test new", 
             format(new Date(), "yyyy-MM-dd"), 
             "high"
-            )
-        );
+        )
+    );
     results.push(
         new createProject(
-            "test3", 
+            "Consult accountant", 
             "test new", 
             format(new Date(), "yyyy-MM-dd"), 
             "high"
-            )
-        );
+        )
+    );
     results.push(
         new createProject(
-            "test4", 
-            "test new", 
-            format(new Date(), "yyyy-MM-dd"), 
-            "high"
-            )
-        );
-    results.push(
-        new createProject(
-            "test5", 
-            "test new", 
-            format(new Date(), "yyyy-MM-dd"), 
-            "high"
-            )
-        );
-
-    results.push(
-        new createProject(
-            "test6", 
+            "Create job posting for SEO specialist", 
             "test new", 
             format(addDays(new Date(),1),  
             "yyyy-MM-dd"), 
             "high"
             )
-        );
+    );
     results.push(
         new createProject(
-            "test7", 
+            "Request design assets for landing page", 
             "test new", 
             format(addDays(new Date(),1),  
             "yyyy-MM-dd"), 
             "high"
-            )
-        );
+        )
+    );
     results.push(
         new createProject(
-            "test8", 
-            "test new", 
-            format(addDays(new Date(),1),  
-            "yyyy-MM-dd"), 
-            "high"
-            )
-        );
-    results.push(
-        new createProject(
-            "test9", 
-            "test new", 
-            format(addDays(new Date(),1),  "yyyy-MM-dd"), 
-            "high"
-            )
-        );
-    results.push(
-        new createProject(
-            "test10",
-            "test new",
-            format(addDays(new Date(),1), "yyyy-MM-dd"), 
-            "high"
-            )
-        );
-
-    results.push(
-        new createProject(
-            "test11",
+            "Research content ideas",
             "test new",
             format(addDays(new Date(),2), "yyyy-MM-dd"), 
             "high"
-            )
-        );
+        )
+    );
     results.push(
         new createProject(
-            "test12",
+            "Create database for task mananger",
             "test new",
             format(addDays(new Date(),2), "yyyy-MM-dd"), 
             "high"
-            )
-        );
-    // results.push(new createProject("test13", "test new", format(addDays(new Date(),2),  "yyyy-MM-dd"), "high"));
-    // results.push(new createProject("test14", "test new", format(addDays(new Date(),2),  "yyyy-MM-dd"), "high"));
-    // results.push(new createProject("test15", "test new", format(addDays(new Date(),2),  "yyyy-MM-dd"), "high"));
+        )
+    );
+    results.push(
+        new createProject(
+            "Renew TV license", 
+            "test new", 
+            format(addDays(new Date(),2), "yyyy-MM-dd"), 
+            "high"
+        )
+    );
+    results.push(
+        new createProject(
+            "Consult engineer", 
+            "test new", 
+            format(addDays(new Date(),3), "yyyy-MM-dd"), 
+            "high"
+        )
+    );
+    results.push(
+        new createProject(
+            "Print business cards", 
+            "test new", 
+            format(addDays(new Date(),2), "yyyy-MM-dd"), 
+            "high"
+        )
+    );
 
     return results;
 }
