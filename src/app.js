@@ -218,8 +218,8 @@ const deleteProject = (id) => {
  * @param { uniqid } id 
  */
 const changeDueDate = (date, id) => {
-    const index = projects.indexOf(project);
     const project = getProjectById(id);
+    const index = projects.indexOf(project);
     project.setDueDate(date);
     projects[index] = project;
     saveOnLocalStorage();

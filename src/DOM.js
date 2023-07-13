@@ -66,6 +66,14 @@ const createCheckboxElement = (id) => {
 };
 
 /**
+ * close edit display.
+ */
+document.querySelector("#EditPriorityForm :first-child :last-child")
+.addEventListener("click", () => {
+    document.querySelector("#EditPriority-modal").style.display = "none";
+});
+
+/**
  * select/get new priority button.
  */
 const submitPriorityButton = document.querySelector("#submitNewPriority");
@@ -76,7 +84,9 @@ const submitPriorityButton = document.querySelector("#submitNewPriority");
 submitPriorityButton
 .addEventListener("click", () => {
     changePriority(document.querySelector("#new-priority").value, id);
+    changeDueDate(document.querySelector("#new-dueDate").value, id);
     document.querySelector("#new-priority").value = "";
+    document.querySelector("#new-dueDate").value = "";
     editForm.style.display = "none";
 });
 

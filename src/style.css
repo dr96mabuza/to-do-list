@@ -447,5 +447,39 @@ h5 {
 }
 
 legend {
+    font-weight: bolder;
+}
+
+#EditPriorityForm >div >label {
     font-weight: bold;
+    margin-top: 5px;
+}
+
+#EditPriorityForm {
+    display: flex;
+    flex-direction: column;
+    /* gap: 25px; */
+}
+
+#EditPriorityForm :first-child {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-right: 5px; */
+}
+
+#EditPriorityForm :first-child :last-child {
+    width: fit-content;
+}
+
+#EditPriorityForm >button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: forestgreen;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
 }
