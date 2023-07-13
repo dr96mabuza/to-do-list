@@ -11,24 +11,24 @@
         <div id="individual-project">
             <button>&times</button>
             <div>
-                <p>Name</p>
+                <h4>Name:</h4>
                 <p></p>
             </div>
             <div>
-                <p>Discription</p>
+                <h4>Discription:</h4>
                 <p></p>
             </div>
             <div>
-                <p>Due Date</p>
+                <h4>Due Date:</h4>
                 <p></p>
             </div>
 
             <div>
-                <p>Priority</p>
+                <h4>Priority:</h4>
                 <p></p>
             </div>
             <div>
-                <p>Completed</p>
+                <h4>Progress:</h4>
                 <p></p>
             </div>
             <div>
@@ -68,6 +68,11 @@
     <div id="EditPriority-modal">
         <form action="" method="post" id="EditPriorityForm">
             <button class="close">&times;</button>
+            <legend>Change Due Date</legend>
+            <div>
+                <label for=""></label>
+                <input type="date" name="" id="">
+            </div>
             <legend>Change Priority</legend>
             <div>
                 <label for="priority">Priority</label>
@@ -77,19 +82,7 @@
                     <option value="low">Low</option>
                 </select>
             </div>
-            <button type="submit" id="submitNewPriority">Change Priority</button>
-        </form>
-    </div>
-
-    <div id="EditDueDate-modal">
-        <form action="" method="post" id="EditDueDateForm">
-            <button class="close">&times;</span>
-            <legend>Change Due Date</legend>
-            <div>
-                <label for=""></label>
-                <input type="date" name="" id="">
-            </div>
-            <button type="submit">Change Due Date</button>
+            <button type="submit" id="submitNewPriority">Update Task</button>
         </form>
     </div>
     
