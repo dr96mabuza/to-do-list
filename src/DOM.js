@@ -92,6 +92,12 @@ const projectCompleted = (complete) => { if (complete == true) {return "complete
  * @param { createProject } project 
  */
 const displaySingleProject = (project) => {
+    document
+    .querySelector("#individual-project :nth-child(1)")
+    .addEventListener("click", () => {
+        document.querySelector("#individual-project-model").style.display = "none";
+    });
+
     // display project name.
     document
     .querySelector("#individual-project :nth-child(2) :nth-child(2)")
@@ -143,9 +149,7 @@ const displaySingleProject = (project) => {
     .querySelector("#individual-project :nth-child(7) :nth-child(1)")
     .addEventListener("click", () => {
         // display edit form.
-        editForm
-        .style
-        .display = "flex";
+        editForm.style.display = "flex";
         id = project.getId();
     });
 };
@@ -175,7 +179,6 @@ const styleNameDisplay = (nameDisplay) => {
     nameDisplay.style.alignContent = "center";
     nameDisplay.style.padding = "2px 3px";
     nameDisplay.style.gap = "8px";
-    // nameDisplay.style.height = "25px";
     nameDisplay.style.paddingTop = "10px"
 };
 
@@ -227,16 +230,11 @@ const displayProjects = (projects, category) => {
             document
             .querySelector(`#open-${project.getId()}`)
             .addEventListener("click", () => {
-                img.style.backgroundColor = "#ECECEC";
                 displaySingleProject(project);
                 document
                 .querySelector("#individual-project-model")
                 .style
                 .display = "flex";
-                setTimeout(
-                    function() {img.style.backgroundColor = "white";},
-                    1000
-                );
             });
         };
     });
@@ -247,12 +245,13 @@ const displayProjects = (projects, category) => {
  * @param { createProject } project 
  */
 const changeUpdatedProjectDisplay = (project) => {
-    document
-    .querySelector(`.${project.getId()} :nth-child(3)`)
-    .textContent = project.getDueDate();
-    document
-    .querySelector(`.${project.getId()} :nth-child(4)`)
-    .textContent = format(project.getDueDate(), "yyyy-MM-dd");
+    // document
+    // .querySelector(`.${project.getId()} :nth-child(3)`)
+    // .textContent = project.getDueDate();
+    // document
+    // .querySelector(`.${project.getId()} :nth-child(4)`)
+    // .textContent = format(project.getDueDate(), "yyyy-MM-dd");
+    console.log("in")
 }
 
 /**
@@ -313,6 +312,5 @@ const renderIcons = () => {
 export {
     displayProjects, 
     formContainer, 
-    changeUpdatedProjectDisplay, 
     displayNumberOfProjects
 };

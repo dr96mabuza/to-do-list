@@ -1,7 +1,6 @@
 import { addDays, format, isToday, isTomorrow } from "date-fns";
 import { 
     displayProjects, 
-    changeUpdatedProjectDisplay, 
     displayNumberOfProjects 
 } from "../src/DOM";
 import {createProject} from "./components/objects/createProject";
@@ -198,7 +197,6 @@ const changePriority = (newPriority, id) => {
     project.setDateUpdated(new Date());
     projects[index] = project;
     saveOnLocalStorage();
-    changeUpdatedProjectDisplay(project);
 }
 
 /**

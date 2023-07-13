@@ -41,7 +41,8 @@ form>div,
 button,
 body,
 #tags,
-#tags :nth-child(2) {
+#tags :nth-child(2),
+#individual-project-model {
     display: flex;
 }
 
@@ -118,13 +119,13 @@ form>button:hover {
 }
 
 #AddTaskForm {
-    height: 400px;
     display: block;
     margin: auto;
 }
 
-#EditPriorityForm, #EditDueDateForm {
-    height: 150px;
+#EditPriority-modal {
+    justify-content: center;
+    align-items: center;
 }
 
 textarea {
@@ -395,4 +396,56 @@ h5 {
 #addTask :last-child {
     padding-top: 4px;
     font-size: 0.9rem;
+}
+
+#individual-project-model {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#individual-project {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding: 10px;
+    gap: 5px;
+    border-radius: 5px;
+}
+
+#individual-project :nth-child(7) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    gap: 5px;
+}
+
+#individual-project > button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #aaa;
+}
+
+#individual-project :nth-child(7) > button {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#individual-project :nth-child(7) :first-child {
+    background-color: green;
+    color: white;
+}
+
+#individual-project :nth-child(7) :last-child {
+    background-color: red;
+    color: white;
+}
+
+legend {
+    font-weight: bold;
 }
