@@ -220,11 +220,16 @@ const displayProjects = (projects, category) => {
 
             const nameDisplay = document.createElement("div");
             styleNameDisplay(nameDisplay);
+
+            // checkbox
             const checkbox = createCheckboxElement(project.getId());
+            checkbox.checked = project.getCompleted() ?  true: false;
             checkbox.addEventListener("change", () => {
                 project.getCompleted() ? project.setCompleted(false) : project.setCompleted(true);
             })
             nameDisplay.appendChild(checkbox);
+
+            // project name
             nameDisplay
             .appendChild(
                 createNewElement("div", "project-name", project.getName())
