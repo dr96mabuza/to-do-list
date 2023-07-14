@@ -242,4 +242,5 @@ export {
     saveProjects,
     handleChange,
     deleteProject,
+    renderDisplay
 }

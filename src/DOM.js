@@ -1,4 +1,4 @@
-import { handleChange, deleteProject} from "./app";
+import { handleChange, deleteProject, renderDisplay} from "./app";
 import { format } from "date-fns";
 import uniqid from "uniqid";
 import { createProject } from "./components/objects/createProject";
@@ -90,6 +90,8 @@ submitPriorityButton
     );
     document.querySelector("#new-priority").value = "";
     document.querySelector("#new-dueDate").value = "";
+    document.querySelector(`.${id}`).remove();
+    renderDisplay();
     editForm.style.display = "none";
     document.querySelector("#individual-project-model").style.display = "none";
 });
