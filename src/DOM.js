@@ -1,4 +1,4 @@
-import { changePriority, deleteProject, changeDueDate } from "./app";
+import { handleChange, deleteProject} from "./app";
 import { format } from "date-fns";
 import uniqid from "uniqid";
 import { createProject } from "./components/objects/createProject";
@@ -83,11 +83,15 @@ const submitPriorityButton = document.querySelector("#submitNewPriority");
  */
 submitPriorityButton
 .addEventListener("click", () => {
-    changePriority(document.querySelector("#new-priority").value, id);
-    changeDueDate(document.querySelector("#new-dueDate").value, id);
+    handleChange(
+        document.querySelector("#new-dueDate").value, 
+        document.querySelector("#new-priority").value, 
+        id
+    );
     document.querySelector("#new-priority").value = "";
     document.querySelector("#new-dueDate").value = "";
     editForm.style.display = "none";
+    document.querySelector("#individual-project-model").style.display = "none";
 });
 
 /**
@@ -95,7 +99,7 @@ submitPriorityButton
  * @param { Boolean } complete 
  * @returns { String }
  */
-const projectCompleted = (complete) => { if (complete == true) {return "complete";} else {return "incomplete";}}
+const projectCompleted = (complete) => { complete ? "complete" :"incomplete"};
 
 /**
  * render individual project on its own.
@@ -260,20 +264,6 @@ const displayProjects = (projects, category) => {
 };
 
 /**
- * render new data after change of priority.
- * @param { createProject } project 
- */
-const changeUpdatedProjectDisplay = (project) => {
-    // document
-    // .querySelector(`.${project.getId()} :nth-child(3)`)
-    // .textContent = project.getDueDate();
-    // document
-    // .querySelector(`.${project.getId()} :nth-child(4)`)
-    // .textContent = format(project.getDueDate(), "yyyy-MM-dd");
-    console.log("in")
-}
-
-/**
  * display the number of current projects.
  * @param { Array } projects 
  */
@@ -283,6 +273,9 @@ const displayNumberOfProjects = (projects) => {
     .textContent = projects.length;
 }
 
+/**
+ * add icons
+ */
 const renderIcons = () => {
     /* Add tasks*/
     const addTaskButtons = document.querySelectorAll("#addTask > img");
@@ -323,9 +316,7 @@ const renderIcons = () => {
     .src = "../src/components/icons/arrow-right-thin-circle-outline.svg";
 };
 
-(function () {
-  renderIcons();  
-})();
+renderIcons();  
 
 
 export {

@@ -138,14 +138,16 @@ const displayByCategory = () => {
     );
 };
 
-displayNumberOfProjects(projects);
-displayByCategory();
-
 /**
  * save current projects on local storage.
  */
 const saveOnLocalStorage = () => {
     localStorage.setItem("todos", JSON.stringify(projects));
+}
+
+const renderDisplay = () => {
+    displayByCategory();
+    displayNumberOfProjects(projects);
 }
 
 /**
@@ -167,8 +169,6 @@ const createNewProject = (name, discription, dueDate, priority) => {
 const saveProjects = (project) => {
     projects.push(project);
     saveOnLocalStorage();
-    displayByCategory();
-    displayNumberOfProjects(projects);
 }
 
 /**
@@ -196,7 +196,7 @@ const changePriority = (newPriority, id) => {
     project.setPriority(newPriority);
     project.setDateUpdated(new Date());
     projects[index] = project;
-    saveOnLocalStorage();
+    
 }
 
 /**
@@ -209,7 +209,6 @@ const deleteProject = (id) => {
             return project;
         }
     });
-    displayNumberOfProjects(projects);
 }
 
 /**
@@ -222,13 +221,25 @@ const changeDueDate = (date, id) => {
     const index = projects.indexOf(project);
     project.setDueDate(date);
     projects[index] = project;
-    saveOnLocalStorage();
 }
+
+/**
+ * 
+ * @param { String } date 
+ * @param { String } priority 
+ * @param { uniqid } id 
+ */
+const handleChange = (date, priority, id) => {
+    changeDueDate(date, id);
+    changePriority(priority, id)
+    renderDisplay();
+}
+
+renderDisplay();
 
 export {
     createNewProject,
     saveProjects,
-    changePriority,
+    handleChange,
     deleteProject,
-    changeDueDate
 }
