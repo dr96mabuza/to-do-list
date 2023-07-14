@@ -1,45 +1,485 @@
-*{
-    padding: 0;
+/* universal */
+
+* {
     margin: 0;
+    padding: 0;
+    font-size: 16px;
 }
+
+p {
+    font-size: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h5 {
+    font-size: 0.8rem;
+}
+
+
+
+/* shared */
+
+#AddNewTask-modal, 
+#EditPriority-modal, 
+#EditDueDate-modal,
+#main,
+#content,
+#sidebar,
+.laterTasks,
+#content-header,
+form,
+form>div,
+#tasks > div,
+#sidebar-footer > div,
+#searchbar-container,
+#sidebar-header,
+#sidebar-header :first-child,
+#sidebar-header :last-child,
+button,
+body,
+#tags,
+#tags :nth-child(2),
+#individual-project-model {
+    display: flex;
+}
+
+#AddTaskForm, 
+#EditPriorityForm, 
+#EditDueDateForm {
+    width: 400px;
+}
+
+form>div, 
+form, 
+#sidebar,
+#sidebar-header, 
+#content,
+body,
+#tags {
+    flex-direction: column;
+}
+
+#main,
+#tasks > div,
+#sidebar-footer > div,
+#searchbar-container,
+#sidebar-header :first-child,
+#sidebar-header :last-child,
+#content-header,
+.laterTasks,
+#tags :nth-child(2) {
+    flex-direction: row;
+}
+
+form, 
+#sidebar-header :first-child, 
+.laterTasks {
+    justify-items: center;
+}
+
+#content, .laterTasks, button {
+    width: 100%;
+}
+
+#sidebar, #sidebar-header :first-child {
+    justify-content: space-between;
+}
+/* forms */
+
+form {
+    justify-content: center;
+    background-color: white;
+    padding: 10px 15px;
+    gap: 5px;
+    border-radius: 5px;
+}
+
+form>button {
+    margin-top: 10px;
+}
+
+form>button:hover {
+    background-color: #ECECEC;
+}
+
+#AddNewTask-modal, 
+#EditPriority-modal, 
+#EditDueDate-modal, 
+#individual-project-model {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#AddTaskForm {
+    display: block;
+    margin: auto;
+}
+
+#EditPriority-modal {
+    justify-content: center;
+    align-items: center;
+}
+
+textarea {
+    resize: none;
+}
+
+input, textarea {
+    border: solid #ECECEC 1px;
+    border-radius: 5px;
+}
+
+.close {
+    font-size: 20px;
+    float: right;
+    color: #aaa;
+}
+
+/* .close :hover {
+    color: black;
+    text-decoration: none;
+    cursor: ;
+} */
+
+/* main container */
+#main {
+    gap: 15px;
+    padding: 15px;
+    height: 96%;
+}
+
+/* sidebar */
+#sidebar {
+    min-width: 250px;
+    background-color:#ECECEC;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#sidebar-footer > div,
+#searchbar-container {
+    justify-content: flex-start;
+    align-content: center;
+    gap: 5px;
+    /* height: 40px; */
+}
+
+#signoutIcon, 
+#settingsIcon, 
+#stickywallIcon, 
+#calendarIcon, 
+#todayIcon, 
+#upcomingIcon,
+#searchIcon,
+#menuIcon {
+    width: 20px;
+    height: 20px;
+}
+
+#sidebar-header {
+    gap: 10px;
+}
+
+#sidebar-header :last-child {
+    align-items: center;
+}
+
+#sidebar-header :last-child :last-child {
+    width: 90%;
+    padding: 2px;
+}
+
+#tags :nth-child(2) {
+    justify-content: space-between;
+    gap: 5px;
+}
+
+#tags :nth-child(2) > button {
+    display: flex;
+    flex-direction: row;
+    /* border: solid black 0.5px; */
+    border-radius: 5px;
+    justify-content: center;
+    justify-items: center;
+    padding: 3px 0.6px;
+}
+
+#tags > div :nth-child(1) {
+    background-color: pink;
+}
+
+#tags > div :nth-child(2) {
+    background-color: skyblue;
+}
+
+/* content container */
+#content-container, 
+#today, 
+#tomorrow, 
+#week {
+    border: solid #ECECEC 0.5px;
+}
+
+#content-container, 
+.laterTasks {
+    justify-content: space-evenly;
+}
+
 
 #content {
-    width: 100;
-    height: 100vh;
-    
-    display: grid;
-    grid-template-columns: minmax(150px, 10%) minmax(500px, 90%);
-    grid-template-rows: 50px minmax(500px, 90%);
+    gap: 30px;
 }
 
-#header {
-    grid-row: 1/2;
-    grid-column: 2/3;
-}
-
-#sidebar {
-    grid-row: 1/3;
-    grid-column: 1/2;
-    padding: 10px 15px;
-}
-
-.home {
-    margin-bottom: 50px;
-}
-
-#projects-Container {
-    padding: 15px 20px;
-    
-}
-
-#projects {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-bottom: 25px;
-}
-
-.addNewProject {
-    display: flex;
+#content-header {
+    gap: 20px;
+    justify-content: flex-start;
     align-items: center;
+}
+
+#content-header :last-child {
+    margin-top: 3px;
+}
+
+#content-container {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.laterTasks {
+    margin-top: 15px;
+    gap: 10px;
+}
+
+#today {
+    height: 365px;
+    border-radius: 7px;
+    padding: 5px;
+    overflow: scroll;
+}
+
+#tomorrow, #week {
+    height: 365px;
+    border-radius: 7px;
+    padding: 5px;
+    width: 48.72%;
+    overflow: hidden;
+}
+
+#today-projects, #tomorrow-projects, #week-projects {
+    
+    height: 100%;
+    padding: 5px 10px;
+}
+
+#individual-project {
+    background-color: white;
+}
+
+/* buttons */
+
+button {
+    background-color: white;
+    border: 0;
+    justify-content: flex-start;
+    justify-items: flex-start;
+}
+
+#addTask {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    border: solid #ECECEC 1px;
+    border-radius: 5px;
+    padding: 5px;
+    color: #aaa;
+    font-size: small;
+}
+
+#addTask:hover {
+    background-color: #ECECEC;
+}
+
+
+
+/* new new */
+#lists :last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#lists :last-child > div :last-child {
+    padding-top: 2px;
+}
+
+#lists :last-child > div :first-child {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+}
+
+#lists :last-child :first-child :first-child {
+    background-color: red;
+}
+
+#lists :last-child :nth-child(2) :first-child {
+    background-color: skyblue;
+}
+
+#lists :last-child :last-child :first-child {
+    background-color: gold;
+}
+
+#lists :last-child > div {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+#sidemenu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#searchbar-container {
+    background-color: #ECECEC;
+    border-radius: 7px;
+    padding: 5px;
+    border: solid #aaa9a9 0.3px;
+    margin-bottom: 5px;
+}
+
+#sidebar-header :last-child > input{
+    border: 0px;
+    background-color: #ECECEC;
+}
+
+#main :first-child {
+    padding-top: 4px;
+}
+
+h5 {
+    padding-bottom: 5px;
+}
+
+
+#tasks > div {
+    align-items: center;
+    gap: 2px;
+    height: 29px;
+}
+
+#tasks > div > div, #sidebar-footer > div :last-child {
+    padding-top: 3.5px;
+}
+
+
+.tomorrow-header, .today-header, .week-header {
+    margin-left: 8px;
+}
+
+#addTask > img {
+    filter: invert(77%) sepia(9%) saturate(11%) hue-rotate(335deg) brightness(90%) contrast(81%);
+}
+
+#addTask :last-child {
+    padding-top: 4px;
+    font-size: 0.9rem;
+}
+
+#individual-project-model {
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+#individual-project {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding: 10px;
+    gap: 5px;
+    border-radius: 5px;
+}
+
+#individual-project :nth-child(7) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    gap: 5px;
+}
+
+#individual-project > button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #aaa;
+}
+
+#individual-project :nth-child(7) > button {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#individual-project :nth-child(7) :first-child {
+    background-color: green;
+    color: white;
+}
+
+#individual-project :nth-child(7) :last-child {
+    background-color: red;
+    color: white;
+}
+
+legend {
+    font-weight: bolder;
+}
+
+#EditPriorityForm >div >label {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+#EditPriorityForm {
+    display: flex;
+    flex-direction: column;
+    /* gap: 25px; */
+}
+
+#EditPriorityForm :first-child {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-right: 5px; */
+}
+
+#EditPriorityForm :first-child :last-child {
+    width: fit-content;
+}
+
+#EditPriorityForm >button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: forestgreen;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
 }

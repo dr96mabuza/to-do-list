@@ -7,88 +7,194 @@
     <title>To Do List</title>
 </head>
 <body>
-    <div id="content">
-        <div id="header">
-            <div id="user">
-                <div class="userName"></div>
-                <div class="welcome"></div>
+    <div id="individual-project-model">
+        <div id="individual-project">
+            <button>&times</button>
+            <div>
+                <h4>Name:</h4>
+                <p></p>
             </div>
-            <div id="headerIcons">
-                <div class="icon"></div>
-                <div class="icon"></div>
-                <div class="profilePicture"></div>
+            <div>
+                <h4>Discription:</h4>
+                <p></p>
             </div>
-        </div>
-        <div id="sidebar">
-            <div class="home">
-                <div class="sidebarIcon"></div>
-                <div class="sidebarContent">To Do List</div>
+            <div>
+                <h4>Due Date:</h4>
+                <p></p>
             </div>
-            <div class="dashboard">
-                <div class="sidebarIcon"></div>
-                <div class="sidebarContent">Dashboard</div>
+
+            <div>
+                <h4>Priority:</h4>
+                <p></p>
             </div>
-            <div class="workspace">
-                <div class="today">
-                    <div class="sidebarIcon"></div>
-                    <div class="sidebarContent">Due today</div> 
-                </div>
-                <div class="tomorrow">
-                    <div class="sidebarIcon"></div>
-                    <div class="sidebarContent">Due Tomorrow</div>
-                </div>
-                <div class="after-seven-days">
-                    <div class="sidebarIcon"></div>
-                    <div class="sidebarContent">Due in the next seven days</div>
-                </div>
+            <div>
+                <h4>Progress:</h4>
+                <p></p>
             </div>
-        </div>
-        <div id="projects-Container">
-            <div id="projects">
-                <div id="toDoList">
-                    <div>To Do List</div>
-                </div>
-                <div id="on-Progress">
-                    <div>On Progess</div>
-                </div>
-                <div id="completed">
-                    <div>Completed</div>
-                </div>
-            </div>
-            <div class="addNewProject">
-                <button class="addProjects">Add New Card</button>
+            <div>
+                <button>Edit</button>
+                <button>Delete</button>
             </div>
         </div>
     </div>
-    
-    <div id="formContainer">
-        <form id="form">
-            <div class="formContent">
-                <label for="projectName">Project Name</label>
-                <input type="text" name="projectName" id="projectName" required>
+    <div id="AddNewTask-modal">
+        <form id="AddTaskForm" action="" method="post">
+            <button class="close">&times;</button>
+            <legend>Add New Task</legend>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="project-name" id="project-name">
             </div>
-            <div class="formContent">
-                <label for="projectDiscription">Discription</label>
-                <input type="text" name="projectDiscription" id="projectDiscription" required>
+            <div>
+                <label for="discription">Discription</label>
+                <textarea name="project-discription" id="project-discription" cols="30" rows="10"></textarea>
             </div>
-            <div class="formContent">
-                <label for="dueDate">Date and Time due</label>
-                <input type="datetime" name="dueDate" id="dueDate">
+            <div>
+                <label for="dueDate">Date due</label>
+                <input type="date" name="project-dueDate" id="project-dueDate">
             </div>
-            <div class="formContent">
+            <div>
                 <label for="priority">Priority</label>
-                <select id="priority" name="priority">
-                    <option value="High">High</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Low">Low</option>
-                  </select>
+                <select name="project-priority" id="project-priority">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
             </div>
-            <div class="formContent">
-                <label for="projectTasks">Tasks</label>
-                <input type="text" name="projectTasks" id="projectTasks">
-            </div>
-            <button type="submit" id="submit">submit</button>
+            <button type="submit" id="submit">Add Task</button>
         </form>
+    </div>
+
+    <div id="EditPriority-modal">
+        <form action="" method="post" id="EditPriorityForm">
+            <div id="tt">
+                <legend>Edit Task</legend>
+                <button class="close">&times;</button>
+            </div>
+            <div>
+                <label for="">Due date</label>
+                <input type="date" name="" id="new-dueDate">
+            </div>
+            <div>
+                <label for="priority">Priority</label>
+                <select name="" id="new-priority">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+            <button type="submit" id="submitNewPriority">Update Task</button>
+        </form>
+    </div>
+    
+    <div id="main">
+        <div id="sidebar">
+            <div>
+                <div id="sidebar-header">
+                    <div>
+                        <h3>Menu</h3>
+                        <img src="" alt="" id="menuIcon">
+                    </div>
+                    <div id="searchbar-container">
+                        <img src="" alt="" id="searchIcon">
+                        <input type="text" id="searchbar" placeholder="search">
+                    </div>
+                </div>
+                <div id="sidemenu">
+                    <div id="tasks">
+                        <h5>TASKS</h5>
+                        <div>
+                            <img src="" alt="" id="upcomingIcon">
+                            <div>Upcoming</div>
+                        </div>
+                        <div>
+                            <img src="" alt="" id="todayIcon"">
+                            <div>Today</div>
+                        </div>
+                        <div>
+                            <img src="" alt="" id="calendarIcon">
+                            <div>Calendar</div>
+                        </div>
+                        <div>
+                            <img src="" alt="" id="stickywallIcon">
+                            <div>Stick</div>
+                    </div>
+                    </div>
+                    <div id="lists">
+                        <h5>LISTS</h5>
+                        <div>
+                            <div>
+                                <div></div>
+                                <div>Personal</div>
+                            </div>
+                            <div>
+                                <div></div>
+                                <div>Work</div>
+                            </div>
+                            <div>
+                                <div></div>
+                                <div>List 1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tags">
+                        <h5>TAGS</h5>
+                        <div>
+                            <button>Tag 1</button>
+                            <button>Tag 2</button>
+                            <button>+ Add Tag</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sidebar-footer">
+                <div>
+                    <img src="" alt="" id="settingsIcon">
+                    <div>Settings</div>
+                </div>
+                <div>
+                    <img src="" alt="" id="signoutIcon">
+                    <div>Sign out</div>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div id="content-header"><h2>Upcoming</h2><h2></h2></div>
+            <div id="content-container">
+                <div id="today">
+                    <h3 class="today-header">Today</h3>
+                    <div id="today-projects">
+                        <button id="addTask">
+                            <img src="" alt="">
+                            <p>Add New Task</p>
+                        </button>
+                    </div>
+                    
+                </div>
+                <div class="laterTasks">
+                    <div id="tomorrow">
+                        <h3 class="tomorrow-header">Tomorrow</h3>
+                        <div id="tomorrow-projects">
+                            <button id="addTask">
+                                <img src="" alt="">
+                                <p>Add New Task</p>
+                            </button>
+                        </div>
+    
+                    </div>
+                    <div id="week">
+                        <h3 class="week-header">This Week</h3>
+                        <div id="week-projects">
+                            <button id="addTask">
+                                <img src="" alt="">
+                                <p>Add New Task</p>    
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="./main.js"></script>
 </body>
