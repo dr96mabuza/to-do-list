@@ -2,6 +2,16 @@ import { handleChange, deleteProject, renderDisplay} from "./app";
 import { format } from "date-fns";
 import uniqid from "uniqid";
 import { createProject } from "./components/objects/createProject";
+import chevronRight from "../src/components/icons/chevron-right.svg";
+import plus from "../src/components/icons/plus.svg";
+import menu from "../src/components/icons/menu.svg";
+import magnify from "../src/components/icons/magnify.svg";
+import chevronDoubleRight from "../src/components/icons/chevron-double-right.svg";
+import formatListBulleted from "../src/components/icons/format-list-bulleted.svg";
+import calendarMonthOutline from "../src/components/icons/calendar-month-outline.svg";
+import note from "../src/components/icons/note.svg";
+import tune from "../src/components/icons/tune.svg";
+import arrowRightThinCircleOutline from "../src/components/icons/arrow-right-thin-circle-outline.svg";
 
 let id = null;
 
@@ -245,7 +255,7 @@ const displayProjects = (projects, category) => {
 
             // add arrow icon
             const img = createNewElement("img",`open-${project.getId()}`,"");
-            img.setAttribute("src", "../src/components/icons/chevron-right.svg");
+            img.setAttribute("src", chevronRight);
             styleOpenFullProjectDetails(img)
 
             projectContainer.appendChild(img);
@@ -282,40 +292,24 @@ const renderIcons = () => {
     /* Add tasks*/
     const addTaskButtons = document.querySelectorAll("#addTask > img");
     addTaskButtons.forEach((button) => {
-        button.src = "../src/components/icons/plus.svg";
+        button.src = plus;
         button.style.height = "20px";
     });
 
     /* ADD SIDEBAR ICONS */
     // menu
-    document
-    .querySelector("#menuIcon")
-    .src = "../src/components/icons/menu.svg";
-    document
-    .querySelector("#searchIcon")
-    .src = "../src/components/icons/magnify.svg";
+    document.querySelector("#menuIcon").src = menu;
+    document.querySelector("#searchIcon").src = magnify;
 
     // tasks
-    document
-    .querySelector("#upcomingIcon")
-    .src = "../src/components/icons/chevron-double-right.svg";
-    document
-    .querySelector("#todayIcon")
-    .src = "../src/components/icons/format-list-bulleted.svg";
-    document
-    .querySelector("#calendarIcon")
-    .src = "../src/components/icons/calendar-month-outline.svg";
-    document
-    .querySelector("#stickywallIcon")
-    .src = "../src/components/icons/note.svg";
+    document.querySelector("#upcomingIcon").src = chevronDoubleRight;
+    document.querySelector("#todayIcon").src = formatListBulleted;
+    document.querySelector("#calendarIcon").src = calendarMonthOutline;
+    document.querySelector("#stickywallIcon").src = note;
 
     // 
-    document
-    .querySelector("#settingsIcon")
-    .src = "../src/components/icons/tune.svg";
-    document
-    .querySelector("#signoutIcon")
-    .src = "../src/components/icons/arrow-right-thin-circle-outline.svg";
+    document.querySelector("#settingsIcon").src = tune;
+    document.querySelector("#signoutIcon").src = arrowRightThinCircleOutline;
 };
 
 renderIcons();  
