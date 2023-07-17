@@ -11,10 +11,13 @@ if (localStorage.getItem("todos") !== null) {
     const objectsList = JSON.parse(localStorage.getItem("todos"));
     
     projects = objectsList.map((project) => {
+
+        // convert date string to date
         project._dueDate = parseISO(project._dueDate)
         project._dateUpdated = parseISO(project._dateUpdated)
         project._dateCreated = parseISO(project._dateCreated)
         
+        // add object methods
         Object.setPrototypeOf(
             project, 
             new createProject(
