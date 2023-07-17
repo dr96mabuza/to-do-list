@@ -6,7 +6,7 @@ import {
 import {createProject} from "./components/objects/createProject";
 import uniqid from "uniqid";
 
-localStorage.clear();
+// localStorage.clear();
 const placeholderProjects = () => {
     let results = []
     results
@@ -103,8 +103,20 @@ const placeholderProjects = () => {
 
     return results;
 }
-let projects = localStorage
-.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : placeholderProjects();
+let projects = placeholderProjects();
+if (localStorage.getItem("todos") !== null) {
+    projects = (JSON.parse(localStorage.getItem("todos"))).map((project) => {
+        Object.setPrototypeOf(
+            project, 
+            new createProject(
+                "protrotype",
+                "this object is created in order to pass the methods to other objects after deserialization.",
+                "2000-01-12",
+                "high"
+            )
+        );
+    });
+}
 
 /**
  * takes in {category} string to get {array} of projects by specific dates 
