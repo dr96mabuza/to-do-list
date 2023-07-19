@@ -1,6 +1,6 @@
 import './style.css';
 import './formStyle.css';
-import { createNewProject, saveProjects } from "./app";
+import { createNewProject, saveProjects, renderDisplay } from "./app";
 import './DOM';
 import {formContainer} from "./DOM";
 
@@ -39,6 +39,7 @@ submitButton.addEventListener('click', () => {
                 priority.value)
             );
         formContainer.style.display = 'none';
-        resetForm()
+        resetForm();
+        renderDisplay();
     };
 });
