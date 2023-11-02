@@ -6,6 +6,7 @@
 - [Requirements](#requirements)
 - [Installations](#installations)
 - [Usage](#usage)
+- [Issues](#issues)
 
 ## Project Status
 - Complete.
@@ -33,4 +34,6 @@ npx webpack --watch
 ```
 
 ## Issues
-    - 
+    - Finding a design that can accomokdate the project requirements.
+    - Chosen design has extra buttons and menu items that are outside the project scope.
+    - Project only for desktop view. 
