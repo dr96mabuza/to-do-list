@@ -17,8 +17,8 @@ A [task management](https://www.theodinproject.com/lessons/node-path-javascript-
 - [Live preview](https://dr96mabuza.github.io/to-do-list/)
 
 ### Assert sources
-- design: https://dribbble.com/
-- icons: https://materialdesignicons.com/.
+- [design](https://dribbble.com/)
+- [icons](https://materialdesignicons.com/)
 
 ## Requirements
 - NVM
