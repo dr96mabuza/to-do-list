@@ -36,6 +36,6 @@ npx webpack --watch
 ```
 
 ## Issues
-- Finding a design that can accomokdate the project requirements.
+- Finding a design that can accommodate the project requirements.
 - Chosen design has extra buttons and menu items that are outside the project scope.
 - Project only for desktop view. 
